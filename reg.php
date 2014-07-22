@@ -3,7 +3,7 @@
   $useEcho  = 0;
   $mysqlerr = 0;
   $maxMemReached = 0;
-  $evtMemberCount = array(1, 1, 2, 1, 1, 1, 2, 1 , 1, 1, 1, 2, 1, 2 ,1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1 ,1, 3, 1, 1, 1, 2, 1, 2, 1, 8);
+  $evtMemberCount = array(1, 1, 1, 2, 2, 2, 1, 1, 5, 7, 5, 5, 8, 1 ,1, 2, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1 ,1, 1, 1, 1, 1, 1, 1, 1, 1, 1);  
 
   if((isset($_POST['admin']) == true) && (isset($_POST['evtId']) == true) && (isset($_POST['set']) == true) && (isset($_POST['name']) == true) && (isset($_POST['ipaddr']) == true) && (isset($_POST['groupId']) == true) && (isset($_POST['groupName']) == true))
   {	

@@ -27,7 +27,7 @@
 	$fullName = "Guest";
   $emailID  = "";
   $preLevel = 0;
-	$noReg    = 1;
+	$noReg    = 0;
 	$evtD     = 0;
 	$evtT     = 0;
 	$totEvts = 36;
@@ -37,7 +37,7 @@
 	//$qodQues  = "Manish is the son of Harish.. So Harish is the ________of Manish's Father?";
 	
 	                     /* 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5) */  
-	$evtMemberCount = array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1, 1, 1, 1, 1, 1, 1, 1, 1, 1);  
+	$evtMemberCount = array(1, 1, 1, 2, 2, 2, 1, 1, 5, 7, 5, 5, 8, 1 ,1, 2, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1 ,1, 1, 1, 1, 1, 1, 1, 1, 1, 1);  
   $stopRegForEvt  = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);    
     
 					   /*      0              1            2             3             4     */
@@ -1597,13 +1597,6 @@ function IsAnswerPresent()
 	
 	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />	
-	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />	
-	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />	
 	
   </body>
-
-  
-  
-  
 </html>
