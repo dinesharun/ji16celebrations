@@ -456,7 +456,7 @@ function IsAnswerPresent()
   
     <!-- Top Navigation  -->     
 	<div class="ji15LogoDiv">
-		<a href="http://www.jasmin-infotech.com" target="_blank"> 
+		<a href="http://ji16celebrations.appspot.com/" target="_blank"> 
 			<img src="images/ji16.jpg" class="ji15LogoImg" /> 
 		</a>
 		<!--[if !IE]> --><div class="lineSepLong"></div><!-- <![endif]-->
@@ -512,7 +512,7 @@ function IsAnswerPresent()
 		<h3 style="text-align:center;">Today's Events </h3><!--[if !IE]> --><div class="lineSepLong"></div><!-- <![endif]--><br />
 		
 		<!-- EDIT HERE with the current date -->
-		<div class="date" style="width:100%;text-align:left;"> Tuesday, 22-07-2014 </div>
+		<div class="date" style="width:100%;text-align:left;"> Wednesday, 23-07-2014 </div>
 		
 		<!-- EDIT HERE for Events of the day -->
 		<ul>
@@ -558,7 +558,8 @@ function IsAnswerPresent()
 	<ol style="font-family:Handlee;">
 		<li> Registrations for all events now open<img src="images/new.gif" style="" /> </li>
 		<li> Web portal Usage Guide updated in the <a href="usage.html" target="_blank"> following path  </a> </li>
-		<li> Web portal <a href="http://celebrations/" target="_blank"> http://celebrations/ </a> for internal users and for external users, website will be launched soon </li>
+		<li> Web portal <a href="http://celebrations/" target="_blank"> http://celebrations/ </a> for internal users and 
+		<a href="http://ji16celebrations.appspot.com/" target="_blank"> http://ji16celebrations.appspot.com/ </a> for external users.
 	</ol>
 	
 	<br />
