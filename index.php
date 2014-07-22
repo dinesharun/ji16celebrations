@@ -774,14 +774,14 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Registration Deadline : </td> 
-						<td class="date"> <?php echo $evtSchTimes[0]; ?> </td> 	
+						<td class="date"> <?php echo $evtSchDates[0]; ?> </td> 	
 						<td class="time"> <?php echo $evtSchTimes[0]; ?> </td> 
 					</tr> 
 				</table>
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Tournaments Starts from : </td> 
-						<td class="date"> <?php echo $evtSchTimes[0] ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[0] ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[0+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -791,10 +791,12 @@ function IsAnswerPresent()
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
-				<div id="evt32Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(32);} ?> </div>
+				<div id="evt0Table" style="margin-left:3%;"> <?php {PrintEvtMembers(0);} ?> </div>
 			</td>
 		</tr>
 	</table>
+  
+  
 	<!-- Event Section -->
 	<a id="evt01" name="evt01"> &nbsp; </a><div class="lineSepLong"></div>
 	<h2> <img src="images/mehandi.png" class="evtImgBig" /> &nbsp;&nbsp;&nbsp;Mehandi </h2>
@@ -816,14 +818,14 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Registration Deadline : </td> 
-						<td class="date"> <?php echo  $evtSchTimes[1]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[1]; ?> </td> 
 					<td class="time"> <?php echo $evtSchTimes[1]; ?> </td>
 					</tr> 
 				</table>
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Event Time : </td> 
-						<td class="date"> <?php echo $evtSchTimes[32]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[32]; ?> </td> 
 					<td class="time"> <?php echo $evtSchTimes[1+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -833,7 +835,7 @@ function IsAnswerPresent()
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
-				<div id="evt20Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(20);} ?> </div>
+				<div id="evt1Table" style="margin-left:3%;"> <?php {PrintEvtMembers(1);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -860,14 +862,14 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Registration Deadline : </td> 
-						<td class="date"> <?php echo $evtSchTimes[2]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[2]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[2]; ?> </td>
 					</tr> 
 				</table>
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Event Time : </td> 
-						<td class="date"> <?php echo $evtSchTimes[2]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[2]; ?> </td> 
 					<td class="time"> <?php echo $evtSchTimes[2+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -877,7 +879,7 @@ function IsAnswerPresent()
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
-				<div id="evt17Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(17);} ?> </div>
+				<div id="evt2Table" style="margin-left:3%;"> <?php {PrintEvtMembers(2);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -909,14 +911,14 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Registration Deadline : </td> 
-						<td class="date"> <?php echo $evtSchTimes[3]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[3]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[3]; ?> </td>
 					</tr> 
 				</table>
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Event Time : </td> 
-						<td class="date"> <?php echo $evtSchTimes[3]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[3]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[3+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -926,7 +928,7 @@ function IsAnswerPresent()
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
-				<div id="evt11Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(11);} ?> </div>
+				<div id="evt3Table" style="margin-left:3%;"> <?php {PrintEvtMembers(3);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -952,14 +954,14 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Registration Deadline : </td> 
-						<td class="date"> <?php echo $evtSchTimes[4]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[4]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[4]; ?> </td>
 					</tr> 
 				</table>
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Event Time : </td> 
-						<td class="date"> <?php echo $evtSchTimes[4]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[4]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[4+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -969,7 +971,7 @@ function IsAnswerPresent()
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
-				<div id="evt5Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(5);} ?> </div>
+				<div id="evt4Table" style="margin-left:3%;"> <?php {PrintEvtMembers(4);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -996,14 +998,14 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Registration Deadline : </td> 
-						<td class="date"> <?php echo $evtSchTimes[5]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[5]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[5]; ?> </td>
 					</tr> 
 				</table>
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Event Time : </td> 
-						<td class="date"> <?php echo $evtSchTimes[5]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[5]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[5+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -1013,7 +1015,7 @@ function IsAnswerPresent()
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
-				<div id="evt14Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(14);} ?> </div>
+				<div id="evt5Table" style="margin-left:3%;"> <?php {PrintEvtMembers(5);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1041,14 +1043,14 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Registration Deadline : </td> 
-						<td class="date"> <?php echo $evtSchTimes[6]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[6]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[6]; ?> </td>
 					</tr> 
 				</table>
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Event Time : </td> 
-						<td class="date"> <?php echo $evtSchTimes[6]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[6]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[6+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -1058,7 +1060,7 @@ function IsAnswerPresent()
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
-				<div id="evt1Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(1);} ?> </div>
+				<div id="evt6Table" style="margin-left:3%;"> <?php {PrintEvtMembers(6);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1085,14 +1087,14 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Registration Deadline : </td> 
-						<td class="date"> <?php echo $evtSchTimes[7]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[7]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[7]; ?> </td>
 					</tr> 
 				</table>
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Event Time : </td> 
-						<td class="date"> <?php echo $evtSchTimes[7]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[7]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[7+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -1102,7 +1104,7 @@ function IsAnswerPresent()
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
-				<div id="evt21Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(21);} ?> </div>
+				<div id="evt7Table" style="margin-left:3%;"> <?php {PrintEvtMembers(7);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1127,14 +1129,14 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Registration Deadline : </td> 
-						<td class="date"> <?php echo $evtSchTimes[8]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[8]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[8]; ?> </td>
 					</tr> 
 				</table>
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Event Time : </td> 
-						<td class="date"> <?php echo $evtSchTimes[8]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[8]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[8+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -1144,7 +1146,7 @@ function IsAnswerPresent()
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
-				<div id="evt10Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(10);} ?> </div>
+				<div id="evt8Table" style="margin-left:3%;"> <?php {PrintEvtMembers(8);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1171,14 +1173,14 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Registration Deadline : </td> 
-						<td class="date"> <?php echo $evtSchTimes[9];?> </td> 
+						<td class="date"> <?php echo $evtSchDates[9];?> </td> 
 					<td class="time"> <?php echo $evtSchTimes[9]; ?> </td>
 					</tr> 
 				</table>
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Tournaments starts from : </td> 
-						<td class="date"> <?php echo $evtSchTimes[9]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[9]; ?> </td> 
 					<td class="time"> <?php echo $evtSchTimes[9+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -1188,7 +1190,7 @@ function IsAnswerPresent()
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
-				<div id="evt30Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(30);} ?> </div>
+				<div id="evt9Table" style="margin-left:3%;"> <?php {PrintEvtMembers(9);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1214,14 +1216,14 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Registration Deadline : </td> 
-						<td class="date"> <?php echo $evtSchTimes[10]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[10]; ?> </td> 
 					<td class="time"> <?php echo $evtSchTimes[10]; ?> </td>
 					</tr> 
 				</table>
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Tournaments Starts from : </td> 
-						<td class="date"> <?php echo $evtSchTimes[10]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[10]; ?> </td> 
 					<td class="time"> <?php echo $evtSchTimes[10+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -1231,7 +1233,7 @@ function IsAnswerPresent()
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
-				<div id="evt34Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(34);} ?> </div>
+				<div id="evt10able" style="margin-left:3%;"> <?php {PrintEvtMembers(10);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1258,14 +1260,14 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Registration Deadline : </td> 
-						<td class="date"> <?php echo $evtSchTimes[11]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[11]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[11]; ?> </td>
 					</tr> 
 				</table>
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Event time : </td> 
-						<td class="date"> <?php echo $evtSchTimes[11]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[11]; ?> </td> 
 					<td class="time"> <?php echo $evtSchTimes[11+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -1275,7 +1277,7 @@ function IsAnswerPresent()
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
-				<div id="evt2Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(2);} ?> </div>
+				<div id="evt11Table" style="margin-left:3%;"> <?php {PrintEvtMembers(11);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1305,14 +1307,14 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Registration Deadline : </td> 
-						<td class="date"> <?php echo $evtSchTimes[12]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[12]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[12]; ?> </td>
 					</tr> 
 				</table>
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Tournaments Starts from : </td> 
-						<td class="date"> <?php echo $evtSchTimes[12]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[12]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[12+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -1322,7 +1324,7 @@ function IsAnswerPresent()
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
-				<div id="evt35Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(35);} ?> </div>
+				<div id="evt12Table" style="margin-left:3%;"> <?php {PrintEvtMembers(12);} ?> </div>
 			</td>
 		</tr>
 	</table>	
@@ -1349,14 +1351,14 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Submission Deadline : </td> 
-						<td class="date"> <?php echo $evtSchTimes[13]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[13]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[13]; ?> </td>
 					</tr> 
 				</table>
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Polling Time: </td> 
-						<td class="date"> <?php echo $evtSchTimes[13]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[13]; ?> </td> 
 					<td class="time"> <?php echo $evtSchTimes[13+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -1366,7 +1368,7 @@ function IsAnswerPresent()
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
-				<div id="evt0Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(0);} ?> </div>
+				<div id="evt13Table" style="margin-left:3%;"> <?php {PrintEvtMembers(13);} ?> </div>
 			</td>
 		</tr>
 	</table>	
@@ -1394,14 +1396,14 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Registration Deadline : </td> 
-						<td class="date"> <?php echo $evtSchTimes[14]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[14]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[14]; ?> </td>
 					</tr> 
 				</table>
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Event Time : </td> 
-						<td class="date"> <?php echo $evtSchTimes[14]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[14]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[14+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -1411,7 +1413,7 @@ function IsAnswerPresent()
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
-				<div id="evt8Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(8);} ?> </div>
+				<div id="evt14Table" style="margin-left:3%;"> <?php {PrintEvtMembers(14);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1439,14 +1441,14 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Registration Deadline : </td> 
-						<td class="date"> <?php echo $evtSchTimes[15]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[15]; ?> </td> 
     				<td class="time"> <?php echo $evtSchTimes[15]; ?> </td>
 					</tr> 
 				</table>
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Event Time : </td> 
-						<td class="date"> <?php echo $evtSchTimes[15]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[15]; ?> </td> 
 					<td class="time"> <?php echo $evtSchTimes[15+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -1456,7 +1458,7 @@ function IsAnswerPresent()
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
-				<div id="evt6Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(6);} ?> </div>
+				<div id="evt15Table" style="margin-left:3%;"> <?php {PrintEvtMembers(15);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1482,14 +1484,14 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Registration Deadline : </td> 
-						<td class="date"> <?php echo $evtSchTimes[16]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[16]; ?> </td> 
 					<td class="time"> <?php echo $evtSchTimes[16]; ?> </td>
 					</tr> 
 				</table>
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Tournaments Starts from : </td> 
-						<td class="date"> <?php echo $evtSchTimes[16]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[16]; ?> </td> 
 					<td class="time"> <?php echo $evtSchTimes[16+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -1499,7 +1501,7 @@ function IsAnswerPresent()
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
-				<div id="evt33Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(33);} ?> </div>
+				<div id="evt16Table" style="margin-left:3%;"> <?php {PrintEvtMembers(16);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1525,16 +1527,16 @@ function IsAnswerPresent()
 				<h3> Schedule </h3> 
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
-						<td class="timeEvt"> Registration Deadline : </td> 
-						<td class="date"> <?php echo $evtSchTimes[17]; ?> </td> 
+					<td class="timeEvt"> Registration Deadline : </td> 
+				  <td class="date"> <?php echo $evtSchDates[17]; ?> </td> 
 					<td class="time"> <?php echo $evtSchTimes[17]; ?> </td>
 					</tr> 
 				</table>
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Event Time : </td> 
-						<td class="date"> <?php echo $evtSchTimes[17]; ?> </td> 
-						<!--<td class="time"> <?php echo $evtSchTimes[17+$totEvts]; ?> </td>
+						<td class="date"> <?php echo $evtSchDates[17]; ?> </td> 
+						<td class="time"> <?php echo $evtSchTimes[17+$totEvts]; ?> </td>
 					</tr> 
 				</table>
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -1543,7 +1545,7 @@ function IsAnswerPresent()
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
-				<div id="evt15Table" style="margin-left:3%;"> <?php global $noReg; if($noReg == 0) {PrintEvtMembers(15);} ?> </div>
+				<div id="evt17Table" style="margin-left:3%;"> <?php {PrintEvtMembers(17);} ?> </div>
 			</td>
 		</tr>
 	</table>
@@ -1569,15 +1571,15 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Registration Deadline : </td> 
-						<td class="date"> <?php echo $evtSchTimes[18]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[18]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[18]; ?> </td>
 					</tr> 
 				</table>
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
-						<td class="timeEvt">Tournaments Starts from : </td> 
-						<td class="date"> <?php echo $evtSchTimes[18]; ?> </td> 
-					<td class="time"> <?php echo $evtSchTimes[18+$totEvts]; ?> </td>
+					  <td class="timeEvt">Tournaments Starts from : </td> 
+					  <td class="date"> <?php echo $evtSchDates[18]; ?> </td> 
+					  <td class="time"> <?php echo $evtSchTimes[18+$totEvts]; ?> </td>
 					</tr> 
 				</table>
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
@@ -1586,7 +1588,7 @@ function IsAnswerPresent()
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
-				<div id="evt31Table" style="margin-left:3%;"> <?php {PrintEvtMembers(31);} ?> </div>
+				<div id="evt18Table" style="margin-left:3%;"> <?php {PrintEvtMembers(18);} ?> </div>
 			</td>
 		</tr>
 	</table>			
