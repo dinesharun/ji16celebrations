@@ -781,7 +781,7 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Tournaments Starts from : </td> 
-						<td class="date"> <?php echo $evtSchDates[0] ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[0+$totEvts] ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[0+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -825,7 +825,7 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Event Time : </td> 
-						<td class="date"> <?php echo $evtSchDates[32]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[1+$totEvts]; ?> </td> 
 					<td class="time"> <?php echo $evtSchTimes[1+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -869,7 +869,7 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Event Time : </td> 
-						<td class="date"> <?php echo $evtSchDates[2]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[2+$totEvts]; ?> </td> 
 					<td class="time"> <?php echo $evtSchTimes[2+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -918,7 +918,7 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Event Time : </td> 
-						<td class="date"> <?php echo $evtSchDates[3]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[3+$totEvts]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[3+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -961,7 +961,7 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Event Time : </td> 
-						<td class="date"> <?php echo $evtSchDates[4]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[4+$totEvts]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[4+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -1005,7 +1005,7 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Event Time : </td> 
-						<td class="date"> <?php echo $evtSchDates[5]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[5+$totEvts]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[5+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -1050,7 +1050,7 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Event Time : </td> 
-						<td class="date"> <?php echo $evtSchDates[6]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[6+$totEvts]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[6+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -1094,7 +1094,7 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Event Time : </td> 
-						<td class="date"> <?php echo $evtSchDates[7]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[7+$totEvts]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[7+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -1136,7 +1136,7 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Event Time : </td> 
-						<td class="date"> <?php echo $evtSchDates[8]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[8+$totEvts]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[8+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -1180,7 +1180,7 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Tournaments starts from : </td> 
-						<td class="date"> <?php echo $evtSchDates[9]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[9+$totEvts]; ?> </td> 
 					<td class="time"> <?php echo $evtSchTimes[9+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -1223,7 +1223,7 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Tournaments Starts from : </td> 
-						<td class="date"> <?php echo $evtSchDates[10]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[10+$totEvts]; ?> </td> 
 					<td class="time"> <?php echo $evtSchTimes[10+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -1267,7 +1267,7 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Event time : </td> 
-						<td class="date"> <?php echo $evtSchDates[11]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[11+$totEvts]; ?> </td> 
 					<td class="time"> <?php echo $evtSchTimes[11+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -1314,7 +1314,7 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Tournaments Starts from : </td> 
-						<td class="date"> <?php echo $evtSchDates[12]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[12+$totEvts]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[12+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -1358,7 +1358,7 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Polling Time: </td> 
-						<td class="date"> <?php echo $evtSchDates[13]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[13+$totEvts]; ?> </td> 
 					<td class="time"> <?php echo $evtSchTimes[13+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -1403,7 +1403,7 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Event Time : </td> 
-						<td class="date"> <?php echo $evtSchDates[14]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[14+$totEvts]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[14+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -1448,7 +1448,7 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Event Time : </td> 
-						<td class="date"> <?php echo $evtSchDates[15]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[15+$totEvts]; ?> </td> 
 					<td class="time"> <?php echo $evtSchTimes[15+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -1491,7 +1491,7 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Tournaments Starts from : </td> 
-						<td class="date"> <?php echo $evtSchDates[16]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[16+$totEvts]; ?> </td> 
 					<td class="time"> <?php echo $evtSchTimes[16+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -1535,7 +1535,7 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 						<td class="timeEvt"> Event Time : </td> 
-						<td class="date"> <?php echo $evtSchDates[17]; ?> </td> 
+						<td class="date"> <?php echo $evtSchDates[17+$totEvts]; ?> </td> 
 						<td class="time"> <?php echo $evtSchTimes[17+$totEvts]; ?> </td>
 					</tr> 
 				</table>
@@ -1578,7 +1578,7 @@ function IsAnswerPresent()
 				<table style="width:100%;"> 
 					<tr style="width:100%;">
 					  <td class="timeEvt">Tournaments Starts from : </td> 
-					  <td class="date"> <?php echo $evtSchDates[18]; ?> </td> 
+					  <td class="date"> <?php echo $evtSchDates[18+$totEvts]; ?> </td> 
 					  <td class="time"> <?php echo $evtSchTimes[18+$totEvts]; ?> </td>
 					</tr> 
 				</table>
