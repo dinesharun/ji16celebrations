@@ -207,6 +207,7 @@
 		global $evtMemberCount;
 		global $stopRegForEvt;
 		global $con;
+		global $noReg;
 		
     if($noReg == 0)
     {
@@ -745,7 +746,6 @@ function IsAnswerPresent()
     {
       echo '<a id="uscp" name="uscp"> &nbsp; </a><div class="lineSepLong"></div>';
       echo '<div id="userCPFrame">  </div>';
-      
       echo '<button class="evtRegBtn" style="margin:0px;margin-left:39%;width:22%;font-size:96%;" onclick="showUserCP()"> Refresh Info </button>';
       echo '<br /><br />';
     }

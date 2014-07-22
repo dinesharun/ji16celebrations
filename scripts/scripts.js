@@ -183,7 +183,7 @@ function resizeMe()
     //Standard height, for which the body font size is correct
     var preferredHeight = 864; 
     var preferredWidth = 1152; 
-    var fontsize = 15;
+    var fontsize = 14;
 
     var displayHeight = $(window).height();
     var displayWidth  = $(window).width();
