@@ -27,42 +27,25 @@
   
   <div class="rightNavHeader"> Quick Links </div>
 	<div class="rightNav" id="lnd">
-		<div class="evtLink"> <a href="#evt00" class="leftNavLink"> <img src="images/0.png" class="evtImgSmall" /> Big Shot  </a> </div>
-		<div class="evtLink"> <a href="#evt01" class="leftNavLink"> <img src="images/1.png" class="evtImgSmall" /> Aim the Game  </a> </div>
-		<div class="evtLink"> <a href="#evt02" class="leftNavLink"> <img src="images/2.png" class="evtImgSmall" /> Collage  </a> </div>
-		<div class="evtLink"> <a href="#evt03" class="leftNavLink"> <img src="images/3.png" class="evtImgSmall" /> Soap Architect  </a> </div>
-		<div class="evtLink"> <a href="#evt04" class="leftNavLink"> <img src="images/4.png" class="evtImgSmall" /> Poster Designing  </a> </div>
-		<div class="evtLink"> <a href="#evt05" class="leftNavLink"> <img src="images/5.png" class="evtImgSmall" /> Signing  </a> </div>
-		<div class="evtLink"> <a href="#evt06" class="leftNavLink"> <img src="images/6.png" class="evtImgSmall" /> Dumb Charades  </a> </div>
-		<div class="evtLink"> <a href="#evt07" class="leftNavLink"> <img src="images/7.png" class="evtImgSmall" /> Blind Game  </a> </div>
-		<div class="evtLink"> <a href="#evt08" class="leftNavLink"> <img src="images/8.png" class="evtImgSmall" /> Jasmin's Lucky Charm  </a> </div>
-		<div class="evtLink"> <a href="#evt09" class="leftNavLink"> <img src="images/9.png" class="evtImgSmall" /> Sense of Balance  </a> </div>
-		<div class="evtLink"> <a href="#evt10" class="leftNavLink"> <img src="images/10.png" class="evtImgSmall" /> Maze'3'  </a> </div>
-		<div class="evtLink"> <a href="#evt11" class="leftNavLink"> <img src="images/11.png" class="evtImgSmall" /> Word Hint  </a> </div>
-		<div class="evtLink"> <a href="#evt12" class="leftNavLink"> <img src="images/12.png" class="evtImgSmall" /> Plate and Bangle  </a> </div>
-		<div class="evtLink"> <a href="#evt13" class="leftNavLink"> <img src="images/13.png" class="evtImgSmall" /> Detective Straw  </a> </div>
-		<div class="evtLink"> <a href="#evt14" class="leftNavLink"> <img src="images/14.png" class="evtImgSmall" /> Delayed Response  </a> </div>
-		<div class="evtLink"> <a href="#evt15" class="leftNavLink"> <img src="images/15.png" class="evtImgSmall" /> Slow Rider  </a> </div>
-		<div class="evtLink"> <a href="#evt16" class="leftNavLink"> <img src="images/16.png" class="evtImgSmall" /> Debate  </a> </div>
-		<div class="evtLink"> <a href="#evt17" class="leftNavLink"> <img src="images/17.png" class="evtImgSmall" /> Air Warrior  </a> </div>
-		<div class="evtLink"> <a href="#evt18" class="leftNavLink"> <img src="images/18.png" class="evtImgSmall" /> Pocket the Ball  </a> </div>
-		<div class="evtLink"> <a href="#evt19" class="leftNavLink"> <img src="images/19.png" class="evtImgSmall" /> Ring to Bottle  </a> </div>
-		<div class="evtLink"> <a href="#evt20" class="leftNavLink"> <img src="images/20.png" class="evtImgSmall" /> Nanban  </a> </div>
-		<div class="evtLink"> <a href="#evt21" class="leftNavLink"> <img src="images/21.png" class="evtImgSmall" /> Just a Minute  </a> </div>
-		<div class="evtLink"> <a href="#evt22" class="leftNavLink"> <img src="images/22.png" class="evtImgSmall" /> Top Manager  </a> </div>
-		<div class="evtLink"> <a href="#evt23" class="leftNavLink"> <img src="images/23.png" class="evtImgSmall" /> Find the Partner  </a> </div>
-		<div class="evtLink"> <a href="#evt24" class="leftNavLink"> <img src="images/24.png" class="evtImgSmall" /> Poster Drawing  </a> </div>
-		<div class="evtLink"> <a href="#evt25" class="leftNavLink"> <img src="images/25.png" class="evtImgSmall" /> Haha Huhu Haehae  </a> </div>
-		<div class="evtLink"> <a href="#evt26" class="leftNavLink"> <img src="images/26.png" class="evtImgSmall" /> Assembler  </a> </div>
-		<div class="evtLink"> <a href="#evt27" class="leftNavLink"> <img src="images/27.png" class="evtImgSmall" /> Six legged race  </a> </div>
-		<div class="evtLink"> <a href="#evt28" class="leftNavLink"> <img src="images/28.png" class="evtImgSmall" /> Drink Enough  </a> </div>
-		<div class="evtLink"> <a href="#evt29" class="leftNavLink"> <img src="images/29.png" class="evtImgSmall" /> Picture Puzzle  </a> </div>
-		<div class="evtLink"> <a href="#evt30" class="leftNavLink"> <img src="images/30.png" class="evtImgSmall" /> Cricket  </a> </div>
-		<div class="evtLink"> <a href="#evt31" class="leftNavLink"> <img src="images/31.png" class="evtImgSmall" /> Carom  </a> </div>
-		<div class="evtLink"> <a href="#evt32" class="leftNavLink"> <img src="images/32.png" class="evtImgSmall" /> Chess  </a> </div>
-		<div class="evtLink"> <a href="#evt33" class="leftNavLink"> <img src="images/33.png" class="evtImgSmall" /> Shuttle  </a> </div>
-		<div class="evtLink"> <a href="#evt34" class="leftNavLink"> <img src="images/34.png" class="evtImgSmall" /> Jasmin Bailvan </a> </div>
-		<div class="evtLink"> <a href="#evt35" class="leftNavLink"> <img src="images/35.png" class="evtImgSmall" /> Throwball (Ladies) </a> </div>
+		<div class="evtLink"> <a href="#evt00" class="leftNavLink"> <img src="images/32.png" class="evtImgSmall" /> &nbsp;Chess  </a> </div>
+		<div class="evtLink"> <a href="#evt01" class="leftNavLink"> <img src="images/mehandi.png" class="evtImgSmall" /> &nbsp;Mehandi  </a> </div> 
+		<div class="evtLink"> <a href="#evt02" class="leftNavLink"> <img src="images/musicChair.png" class="evtImgSmall" /> &nbsp;Musical Chair  </a> </div>
+		<div class="evtLink"> <a href="#evt03" class="leftNavLink"> <img src="images/11.png" class="evtImgSmall" /> &nbsp;Word Hint  </a> </div>
+		<div class="evtLink"> <a href="#evt04" class="leftNavLink"> <img src="images/connexion.png" class="evtImgSmall" /> &nbsp;Connextions  </a> </div>
+		<div class="evtLink"> <a href="#evt05" class="leftNavLink"> <img src="images/waterBallon.png" class="evtImgSmall" /> &nbsp;Water Balloon  </a> </div>
+		<div class="evtLink"> <a href="#evt06" class="leftNavLink"> <img src="images/1.png" class="evtImgSmall" /> &nbsp;Aim the Game  </a> </div>
+		<div class="evtLink"> <a href="#evt07" class="leftNavLink"> <img src="images/21.png" class="evtImgSmall" /> &nbsp;Just A Minute  </a> </div>
+		<div class="evtLink"> <a href="#evt08" class="leftNavLink"> <img src="images/football.png" class="evtImgSmall" /> &nbsp;FootBall  </a> </div>
+		<div class="evtLink"> <a href="#evt09" class="leftNavLink"> <img src="images/frenchCric.png" class="evtImgSmall" /> &nbsp;French Cricket  </a> </div>
+		<div class="evtLink"> <a href="#evt10" class="leftNavLink"> <img src="images/rangoli.png" class="evtImgSmall" /> &nbsp;Rangoli </a> </div>
+		<div class="evtLink"> <a href="#evt11" class="leftNavLink"> <img src="images/foe1.png" class="evtImgSmall" /> &nbsp;Pull the foe  </a> </div>
+		<div class="evtLink"> <a href="#evt12" class="leftNavLink"> <img src="images/35.png" class="evtImgSmall" /> &nbsp;Throwball (Ladies) </a> </div>
+		<div class="evtLink"> <a href="#evt13" class="leftNavLink"> <img src="images/0.png" class="evtImgSmall" /> &nbsp;Big Shot  </a> </div>
+		<div class="evtLink"> <a href="#evt14" class="leftNavLink"> <img src="images/8.png" class="evtImgSmall" /> &nbsp;Jasmin's Lucky Charm  </a> </div>
+		<div class="evtLink"> <a href="#evt15" class="leftNavLink"> <img src="images/6.png" class="evtImgSmall" /> &nbsp;Dumb Charades  </a> </div>
+		<div class="evtLink"> <a href="#evt16" class="leftNavLink"> <img src="images/33.png" class="evtImgSmall" /> &nbsp;Shuttle  </a> </div>
+		<div class="evtLink"> <a href="#evt17" class="leftNavLink"> <img src="images/15.png" class="evtImgSmall" /> &nbsp;Slow Rider  </a> </div>
+		<div class="evtLink"> <a href="#evt18" class="leftNavLink"> <img src="images/31.png" class="evtImgSmall" /> &nbsp;Carrom  </a> </div>
 	</div>  
   </div>  
   
@@ -71,13 +54,20 @@
 	$useEcho  = 0;
 	$mysqlerr = 0;
 	
-	$events = array("Big Shot", "Aim the Game", "Collage", "Soap Architect", "Poster Desinging", "Singing", "Dumb Charades", "Blind Game", 
-					"Jasmin's Lucky Charm", "Sense of Balance", "Maze'3'", "Word Hint", "Plate and Bangles", "Detective Straw", "Delayed Response", 
-					"Slow Rider", "Debate", "Air Warrior", "Pocket the Ball", "Ring to Bottle", "Nanban", "Just A Minute", "Top Manager", 
-					"Find the Partner", "Poster Drawing", "HaHa HuHu HaeHae", "Assembler", "Six Legged Race", "Drink Enough", "Picture Puzzle", 
-					"Cricket", "Carom", "Chess", "Shuttle", "Jasmin Bailvan", "Throwball (Ladies)");
+	$events = array("Chess",                "Mehandi",              "Musical Chair",        "Word Hint",                "Connextions",          // 0
+	                "Water Ballon ",        "Aim the Game ",        "Just A Minute",        "FootBall",                 "French Cricket",       // 1
+                  "Rangoli",              "Pull the foe ",        "Throwball",            "Big Shot",        		      "Jasmin's Lucky Charm", // 2
+                  "Dumb Charades",        "Shuttle",              "Slow Rider",           "Carrom",                   "To Be Named",          // 3
+                  "To Be Named",          "To Be Named",          "To Be Named",          "To Be Named",              "To Be Named",          // 4
+                  "To Be Named",          "To Be Named",          "To Be Named",          "To Be Named",              "To Be Named",          // 5
+                  "To Be Named",          "To Be Named",          "To Be Named",          "To Be Named",              "To Be Named",          // 6
+                  "To Be Named"); 
 					
-	$evtMemberCount = array(1, 1, 2, 1, 1, 1, 2, 1 , 1, 1, 1, 2, 1, 2 ,1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1 ,1, 3, 1, 1, 1, 2, 1, 2, 1, 8);
+	$evtMemberCount = array(1, 1, 1, 2, 2, 2, 1, 1, 5, 7, 5, 5, 8, 1 ,1, 2, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1 ,1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+		
+  /* Compromise to use old event ids for new events */
+	                     /* 00, 01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35) */
+	$evtIdNewOldMap = array(32, 20, 17, 11,  5, 14,  1, 21, 10, 30, 34,  2, 35,  0,  8,  6, 33, 15, 31,  3,  4,  7,  9, 12, 13, 16, 18, 19, 22, 23, 24, 25, 26, 27, 28, 29);	
 	
 	if(isset($_SERVER["REMOTE_ADDR"])) { 
 	$ipAddress = $_SERVER["REMOTE_ADDR"];
@@ -98,18 +88,18 @@
 	
 	$con = mysqli_connect("localhost","guest","pass");
 	
-	if(mysql_errno() != 0)
+	if(mysqli_errno($con) != 0)
 	{
-	  if($useEcho == 1) echo "No Connection con = " . $con . '__error = ' . mysql_error() . '<br />';
+	  if($useEcho == 1) echo "No Connection con = " . $con . '__error = ' . mysqli_error($con) . '<br />';
 	  $mysqlerr = 1;
 	}
 	else
 	{
 	  mysqli_select_db($con,"jas16anniv");
 
-	  if(mysql_errno() != 0)
+	  if(mysqli_errno($con) != 0)
 	  {
-		if($useEcho == 1) echo "Could not select Table con = " . $con . '__error = ' . mysql_error() . '<br />';
+		if($useEcho == 1) echo "Could not select Table con = " . $con . '__error = ' . mysqli_error($con) . '<br />';
 		$mysqlerr = 2;
 	  }
 	  else
@@ -156,20 +146,22 @@
 		global $useEcho;
 		global $evtMemberCount;
 		global $con;
+		global $evtIdNewOldMap;
 		
-		$query = 'SELECT eventinfo.NAME, eventinfo.IPADDR, eventinfo.GROUPNAME, userinfo.EMAIL FROM eventinfo LEFT JOIN userinfo ON eventinfo.IPADDR = userinfo.IPADDR WHERE EVTID=' . $evtId . ' ORDER BY eventinfo.GROUPNAME ASC ';
+		$evtOldId = $evtIdNewOldMap[$evtId];
+		
+		$query = 'SELECT eventinfo.NAME, eventinfo.IPADDR, eventinfo.GROUPNAME, userinfo.EMAIL FROM eventinfo LEFT JOIN userinfo ON eventinfo.IPADDR = userinfo.IPADDR WHERE EVTID=' . $evtOldId . ' ORDER BY eventinfo.GROUPNAME ASC ';
 
-        $result = mysqli_query($con,$query);
+		$result = mysqli_query($con,$query);
 
-        if(mysql_errno() != 0)
-        {
-          if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysql_error() . '<br />' . "\r\n";
-          $mysqlerr = 3;
-        }
-        else
-        {
-
-	      echo '<div id="evt' . $evtId . 'table">' . "\r\n";  
+		if(mysqli_errno($con) != 0)
+		{
+			if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysqli_error($con) . '<br />' . "\r\n";
+			$mysqlerr = 3;
+		}
+		else
+		{
+	    echo '<div id="evt' . $evtId . 'table">' . "\r\n";  
 		  echo '<table style="width:87%;text-align:center;margin-left:6%;">' . "\r\n";
 		  
 		  $i = 1;

@@ -3,57 +3,61 @@
 	$mysqlerr = 0;
 	
 	                     /* 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5) */  
-	$evtMemberCount = array(1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 2 ,1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1 ,1, 3, 1, 1, 1, 2, 1, 2, 1, 8);  
-    $stopRegForEvt  = array(0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1);    
+	$evtMemberCount = array(1, 1, 1, 2, 2, 2, 1, 1, 5, 7, 5, 5, 8, 1 ,1, 2, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1 ,1, 1, 1, 1, 1, 1, 1, 1, 1, 1);  
+  $stopRegForEvt  = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);    
     
 					   /*      0              1            2             3             4     */
-	$evtSchDates = array('31.07.2013', '29.07.2013', '26.07.2013', '30.07.2013', '31.07.2013', // 0
-						 '23.07.2013', '01.08.2013', '07.08.2013', '31.07.2013', '13.08.2013', // 1 
-						 '25.07.2013', '22.07.2013', '31.07.2013', '13.08.2013', '23.07.2013', // 2 
-						 '05.08.2013', '06.08.2013', '22.07.2013', '12.08.2013', '01.08.2013', // 3
-						 '19.07.2013', '25.07.2013', '08.08.2013', '02.08.2013', '29.07.2013', // 4
-						 '07.08.2013', '08.08.2013', '06.08.2013', '06.08.2013', '09.08.2013', // 5
-						 '31.07.2013', '09.08.2013', '19.07.2013', '29.07.2013', '25.07.2013', // 6
-						 '29.07.2013',
-						 
-						 '01.08.2013', '30.07.2013', '29.07.2013', '31.07.2013', '01.08.2013', // 0
-						 '24.07.2013', '02.08.2013', '08.08.2013', '01.08.2013', '14.08.2013', // 1 
-						 '26.07.2013', '23.07.2013', '01.08.2013', '14.08.2013', '24.07.2013', // 2 
-						 '06.08.2013', '07.08.2013', '23.07.2013', '13.08.2013', '02.08.2013', // 3
-						 '22.07.2013', '26.07.2013', '09.08.2013', '05.08.2013', '30.07.2013', // 4
-						 '08.08.2013', '09.08.2013', '07.08.2013', '07.08.2013', '12.08.2013', // 5
-						 '03.08.2013', '12.08.2013', '22.07.2013', '31.07.2013', '29.07.2013', // 6
-						 '30.07.2013');                                                        // 7
+	$evtSchDates = array('24.07.2014', '30.07.2014', '06.08.2014', '28.07.2014', '11.08.2014', // 0
+                       '23.07.2014', '22.07.2014', '29.07.2014', '03.08.2014', '27.07.2014', // 1 
+                       '31.07.2014', '04.08.2014', '06.07.2014', '05.08.2014', '10.08.2014', // 2 
+                       '04.08.2014', '22.07.2014', '05.08.2014', '23.07.2014', '00.00.0000', // 3
+                       '00.00.0000', '00.00.0000', '00.00.0000', '00.00.0000', '00.00.0000', // 4
+                       '00.00.0000', '00.00.0000', '00.00.0000', '00.00.0000', '00.00.0000', // 5
+                       '00.00.0000', '00.00.0000', '00.00.0000', '00.00.0000', '00.00.0000', // 6
+                       '00.00.0000',
+                       
+                       '25.07.2014', '31.07.2014', '07.08.2014', '29.07.2014', '12.08.2014', // 0
+                       '24.07.2014', '23.07.2014', '30.07.2014', '04.08.2014', '28.07.2014', // 1 
+                       '01.08.2014', '05.08.2014', '07.08.2014', '14.08.2014', '11.08.2014', // 2 
+                       '05.08.2014', '23.07.2014', '06.08.2014', '24.07.2014', '00.00.0000', // 3
+                       '00.00.0000', '00.00.0000', '00.00.0000', '00.00.0000', '00.00.0000', // 4
+                       '00.00.0000', '00.00.0000', '00.00.0000', '00.00.0000', '00.00.0000', // 5
+                       '00.00.0000', '00.00.0000', '00.00.0000', '00.00.0000', '00.00.0000', // 6
+                       '00.00.0000');                                                        // 7
 							
 						/*	0          1          2           3         4          5          6          7          8         9       */ 
-	$evtSchTimes = array('4:00 PM', '6:00 PM', '6:00 PM', '6:00 PM', '6:00 PM', '6:00 PM', '6:00 PM', '6:00 PM', '6:00 PM', '6:00 PM', // 0
-						 '6:00 PM', '6:00 PM', '6:00 PM', '6:00 PM', '6:00 PM', '6:00 PM', '6:00 PM', '6:00 PM', '6:00 PM', '6:00 PM', // 1
-						 '6:00 PM', '6:00 PM', '6:00 PM', '6:00 PM', '6:00 PM', '6:00 PM', '6:00 PM', '6:00 PM', '6:00 PM', '6:00 PM', // 2
-						 '6:00 PM', '6:00 PM', '6:00 PM', '6:00 PM', '6:00 PM', '6:00 PM',                                             // 3
-						 
-						 '5:00 PM', '5:00 PM', '4:00 PM', '4:00 PM', '5:00 PM', '4:00 PM', '4:00 PM', '4:00 PM', '4:00 PM', '4:00 PM', // 0
-						 '4:00 PM', '4:00 PM', '5:00 PM', '5:00 PM', '5:00 PM', '4:00 PM', '5:00 PM', '5:00 PM', '4:00 PM', '5:00 PM', // 1
-						 '4:00 PM', '4:00 PM', '4:00 PM', '4:00 PM', '4:00 PM', '5:00 PM', '5:00 PM', '4:00 PM', '4:30 PM', '4:00 PM', // 2
-						 '7:00 AM', '5:00 PM', '5:00 PM', '3:00 PM', '4:00 PM', '4:00 PM');		                                       // 3
+	$evtSchTimes = array('0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', // 0
+                       '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', // 1
+                       '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', // 2
+                       '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM',                                             // 3
+                       
+                       '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', // 0
+                       '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', // 1
+                       '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', // 2
+                       '0:00 AM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM', '0:00 PM');		                                       // 3
 						 
 				   /*   0                         1                     2                           3                            4           */
-	$events = array("Big Shot",             "Aim the Game",         "Collage",              "Soap Architect",           "Poster Desinging",     // 0
-	                "Singing",              "Dumb Charades",        "Blind Game",           "Jasmin's Lucky Charm",     "Sense of Balance",     // 1
-					"Maze'3'",              "Word Hint",            "Plate and Bangles",    "Detective",        		"Delayed Response",     // 2
-					"Slow Rider",           "Debate",               "Air Warrior",          "Pocket the Ball",          "Ring to Bottle",       // 3
-					"Nanban",               "Just A Minute",        "Top Manager",          "Find the Partner",         "Poster Drawing",       // 4
-					"HaHa HuHu HaeHae",     "Assembler",            "Six Legged Race",      "Drink Enough",             "Picture Puzzle",       // 5
-					"Cricket",              "Carom",                "Chess",                "Shuttle",                  "Jasmin Bailvan",       // 6
-					"Throwball (Ladies)");  																									// 7						 
+	$events = array("Chess",                "Mehandi",              "Musical Chair",        "Word Hint",                "Connextions",          // 0
+	                "Water Ballon ",        "Aim the Game ",        "Just A Minute",        "FootBall",                 "French Cricket",       // 1
+                  "Rangoli",              "Pull the foe ",        "Throwball",            "Big Shot",        		      "Jasmin's Lucky Charm", // 2
+                  "Dumb Charades",        "Shuttle",              "Slow Rider",           "Carrom",                   "To Be Named",          // 3
+                  "To Be Named",          "To Be Named",          "To Be Named",          "To Be Named",              "To Be Named",          // 4
+                  "To Be Named",          "To Be Named",          "To Be Named",          "To Be Named",              "To Be Named",          // 5
+                  "To Be Named",          "To Be Named",          "To Be Named",          "To Be Named",              "To Be Named",          // 6
+                  "To Be Named");  																									// 7						 
 					
 	$extraDates = array();
 	
-	$extraDates[30] = "03.08.2013, 10.08.2013";
-	$extraDates[31] = "13.08.2013, 14.08.2013";
-	$extraDates[32] = "23.07.2013, 24.07.2013, 25.07.2013, 26.07.2013";
-	$extraDates[33] = "06.08.2013, 07.08.2013, 08.08.2013, 09.08.2013";
+	$extraDates[30] = "";
+	$extraDates[31] = "";
+	$extraDates[32] = "";
+	$extraDates[33] = "";
 	$extraDates[34] = "";	
-	$extraDates[35] = "";		
+	$extraDates[35] = "";			
+		
+  /* Compromise to use old event ids for new events */
+	                     /* 00, 01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35) */
+	$evtIdNewOldMap = array(32, 20, 17, 11,  5, 14,  1, 21, 10, 30, 34,  2, 35,  0,  8,  6, 33, 15, 31,  3,  4,  7,  9, 12, 13, 16, 18, 19, 22, 23, 24, 25, 26, 27, 28, 29);	
 	
 	if(isset($_SERVER["REMOTE_ADDR"])) { 
 	$ipAddress = $_SERVER["REMOTE_ADDR"];
@@ -74,18 +78,18 @@
 	
 	$con = mysqlI_connect("localhost","guest","pass");
 
-	if(mysql_errno() != 0)
+	if(mysqli_errno($con) != 0)
 	{
-	  if($useEcho == 1) echo "No Connection con = " . $con . '__error = ' . mysql_error() . '<br />';
+	  if($useEcho == 1) echo "No Connection con = " . $con . '__error = ' . mysqli_error($con) . '<br />';
 	  $mysqlerr = 1;
 	}
 	else
 	{
 	  mysqlI_select_db( $con, "jas16anniv");
 
-	  if(mysql_errno() != 0)
+	  if(mysqli_errno($con) != 0)
 	  {
-		if($useEcho == 1) echo "Could not select Table con = " . $con . '__error = ' . mysql_error() . '<br />';
+		if($useEcho == 1) echo "Could not select Table con = " . $con . '__error = ' . mysqli_error($con) . '<br />';
 		$mysqlerr = 2;
 	  }
 	  else
@@ -95,9 +99,9 @@
 
 		$result = mysqlI_query($con, $Query);
 
-		if(mysql_errno() != 0)
+		if(mysqli_errno($con) != 0)
 		{
-			if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysql_error() . '<br />';
+			if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysqli_error($con) . '<br />';
 			$mysqlerr = 3;
 		}
 		else
@@ -106,6 +110,8 @@
 			
 			while($row = mysqlI_fetch_array($result))
 			{
+			  $evtId = mapOldIdToNew($row['EVTID']);
+				
 				if($i == 1)
 				{
 					echo '<h2> User Info Panel  </h2>';
@@ -118,10 +124,10 @@
 				}
 				echo '<tr style="width:99%;">' . "\r\n";
 				echo '<td style="border:1px solid black;"> ' . $i . ' </td>';
-				echo '<td style="border:1px solid black;"> ' . $events[$row['EVTID']] . ' </td>';
+				echo '<td style="border:1px solid black;"> ' . $events[$evtId] . ' </td>';
 				echo '<td style="border:1px solid black;"> ' . $row['GROUPNAME'] . ' </td>';
-				echo '<td style="border:1px solid black;"> ' . $evtSchDates[$row['EVTID']] . ' @ ' . $evtSchTimes[$row['EVTID']] . ' </td>';
-				echo '<td style="border:1px solid black;"> ' . $evtSchDates[$row['EVTID']+count($events)] . ' @ ' . $evtSchTimes[$row['EVTID']+count($events)] . ' </td>';
+				echo '<td style="border:1px solid black;"> ' . $evtSchDates[$evtId] . ' @ ' . $evtSchTimes[$evtId] . ' </td>';
+				echo '<td style="border:1px solid black;"> ' . $evtSchDates[$evtId+count($events)] . ' @ ' . $evtSchTimes[$evtId+count($events)] . ' </td>';
 				echo '</tr>' . "\r\n";
 				$i++;
 			}
@@ -143,6 +149,21 @@
 			echo '</table>';
 		}
 	  }
+	}
+	
+	function mapOldIdToNew($evtOldId)
+	{
+	  global $evtIdNewOldMap;
+		
+	  for($i=0;$i<36;$i++)
+		{
+		  if($evtOldId == $evtIdNewOldMap[$i])
+			{
+			  return $i;
+			}
+		}
+		
+		return $i;
 	}
 	
 ?>

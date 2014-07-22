@@ -4,105 +4,113 @@
   $mysqlerr = 0;
   $maxMemReached = 0;
   $evtMemberCount = array(1, 1, 1, 2, 2, 2, 1, 1, 5, 7, 5, 5, 8, 1 ,1, 2, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1 ,1, 1, 1, 1, 1, 1, 1, 1, 1, 1);  
-
+	
+  /* Compromise to use old event ids for new events */
+	                     /* 00, 01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35) */
+	$evtIdNewOldMap = array(32, 20, 17, 11,  5, 14,  1, 21, 10, 30, 34,  2, 35,  0,  8,  6, 33, 15, 31,  3,  4,  7,  9, 12, 13, 16, 18, 19, 22, 23, 24, 25, 26, 27, 28, 29);	
+	
   if((isset($_POST['admin']) == true) && (isset($_POST['evtId']) == true) && (isset($_POST['set']) == true) && (isset($_POST['name']) == true) && (isset($_POST['ipaddr']) == true) && (isset($_POST['groupId']) == true) && (isset($_POST['groupName']) == true))
   {	
-	$con = mysqli_connect("localhost","guest","pass");
+    global $evtIdNewOldMap;
+		
+		$evtOldId = $evtIdNewOldMap[$_POST['evtId']];
+		
+		$con = mysqli_connect("localhost","guest","pass");
 	
-	if(mysql_errno() != 0)
+		if(mysqli_errno($con) != 0)
     {
-      if($useEcho == 1) echo "No Connection con = " . $con . '__error = ' . mysql_error() . '<br />';
+      if($useEcho == 1) echo "No Connection con = " . $con . '__error = ' . mysqli_error($con) . '<br />';
       $mysqlerr = 1;
     }
     else
     {
       mysqli_select_db( $con, "jas16anniv");
 
-      if(mysql_errno() != 0)
+      if(mysqli_errno($con) != 0)
       {
-        if($useEcho == 1) echo "Could not select Table con = " . $con . '__error = ' . mysql_error() . '<br />';
+        if($useEcho == 1) echo "Could not select Table con = " . $con . '__error = ' . mysqli_error($con) . '<br />';
         $mysqlerr = 2;
       }
       else
       {
-		if($_POST['set'] == 1)
-		{
-			if(($_POST['groupName'] == "") && ($evtMemberCount[$_POST['evtId']] != 1))
-			{
-				echo '<br /><div style="color:red;"> Please provide a group name to enter a group event </div>';
-				$maxMemReached = 1;
-				$Query = 'SELECT COUNT(*) as total from eventinfo;'; /* Dummy Query */
-			}
-			else if($evtMemberCount[$_POST['evtId']] != 1)
-			{
-				$Query = 'SELECT COUNT(*) as total from eventinfo WHERE EVTID="' . $_POST['evtId'] . '" AND GROUPNAME="' . $_POST['groupName'] . '";';
+				if($_POST['set'] == 1)
+				{
+					if(($_POST['groupName'] == "") && ($evtMemberCount[$_POST['evtId']] != 1))
+					{
+						echo '<br /><div style="color:red;"> Please provide a group name to enter a group event </div>';
+						$maxMemReached = 1;
+						$Query = 'SELECT COUNT(*) as total from eventinfo;'; /* Dummy Query */
+					}
+					else if($evtMemberCount[$_POST['evtId']] != 1)
+					{
+						$Query = 'SELECT COUNT(*) as total from eventinfo WHERE EVTID="' . $evtOldId . '" AND GROUPNAME="' . $_POST['groupName'] . '";';
+						
+						$result = mysqli_query($con,$Query);
+						$data   = mysqli_fetch_assoc($result);
+						
+						if(mysqli_errno($con) != 0)
+						{
+							if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysqli_error($con) . '<br />';
+							$mysqlerr = 5;
+						}			
+						
+						if($data['total'] >= $evtMemberCount[$_POST['evtId']])
+						{
+							$maxMemReached = 1;
+							
+							echo '<br /><div style="color:red;"> The team you have specified is full, Please add to another team </div>';
+						}
+					}
+					
+					if($maxMemReached == 0)
+					{
+						$Query  = 'INSERT INTO eventinfo (evtid, name, ipaddr, groupid, groupname) ';
+						$Query .= 'VALUES (';
+						$Query .= "'" . $evtOldId . "', ";
+						$Query .= "'" . $_POST['name'] . "', ";
+						$Query .= "'" . $_POST['ipaddr'] . "', ";
+						$Query .= "'" . $_POST['groupId'] . "', ";
+						$Query .= "'" . $_POST['groupName'] . "'); ";
+					}
+				}
+				else
+				{
+					if($_POST['ipaddr'] == "")
+					{
+						$Query  = 'DELETE FROM eventinfo WHERE EVTID=' . $evtOldId . ' AND NAME="' . $_POST['name'] . '" ;';
+					}
+					else
+					{
+						$Query  = 'DELETE FROM eventinfo WHERE EVTID=' . $evtOldId . ' AND IPADDR="' . $_POST['ipaddr'] . '" ;';
+					}
+				}
+		
+				if($useEcho == 1) echo 	$Query;
 				
 				$result = mysqli_query($con,$Query);
-				$data   = mysqli_fetch_assoc($result);
-				
-				if(mysql_errno() != 0)
-				{
-				  if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysql_error() . '<br />';
-				  $mysqlerr = 5;
-				}			
-				
-				if($data['total'] >= $evtMemberCount[$_POST['evtId']])
-				{
-					$maxMemReached = 1;
-					
-					echo '<br /><div style="color:red;"> The team you have specified is full, Please add to another team </div>';
-				}
-			}
-			
-			if($maxMemReached == 0)
-			{
-				$Query  = 'INSERT INTO eventinfo (evtid, name, ipaddr, groupid, groupname) ';
-				$Query .= 'VALUES (';
-				$Query .= "'" . $_POST['evtId'] . "', ";
-				$Query .= "'" . $_POST['name'] . "', ";
-				$Query .= "'" . $_POST['ipaddr'] . "', ";
-				$Query .= "'" . $_POST['groupId'] . "', ";
-				$Query .= "'" . $_POST['groupName'] . "'); ";
-			}
-		}
-		else
-		{
-			if($_POST['ipaddr'] == "")
-			{
-				$Query  = 'DELETE FROM eventinfo WHERE EVTID=' . $_POST['evtId'] . ' AND NAME="' . $_POST['name'] . '" ;';
-			}
-			else
-			{
-				$Query  = 'DELETE FROM eventinfo WHERE EVTID=' . $_POST['evtId'] . ' AND IPADDR="' . $_POST['ipaddr'] . '" ;';
-			}
-		}
 		
-		if($useEcho == 1) echo 	$Query;
-		
-		$result = mysqli_query($con,$Query);
-		
-        if(mysql_errno() != 0)
+        if(mysqli_errno($con) != 0)
         {
-          if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysql_error() . '<br />';
+          if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysqli_error($con) . '<br />';
           $mysqlerr = 3;
         }
         else
         {
-			if($_POST['admin'] == 0) 
-			{
-				PrintEvtMembers($_POST['evtId']);
-			}
-			else
-			{
-				PrintEvtAdMembers($_POST['evtId']);
+					if($_POST['admin'] == 0) 
+					{
+						PrintEvtMembers($_POST['evtId']);
+					}
+					else
+					{
+						PrintEvtAdMembers($_POST['evtId']);
+					}
+				}
 			}
 		}
-	  }
-	}
   }
   else
   {
-	echo 'Error in pgm';
+		echo 'Error in pgm';
   }
   
 	if($useEcho == 1) echo "mysqlerr = ". $mysqlerr .'<br />';
@@ -114,18 +122,21 @@
 		global $fullName;
 		global $evtMemberCount;
 		global $con;
+		global $evtIdNewOldMap;
 		
-		$query = 'SELECT eventinfo.NAME, eventinfo.IPADDR, eventinfo.GROUPNAME, userinfo.EMAIL FROM eventinfo LEFT JOIN userinfo ON eventinfo.IPADDR = userinfo.IPADDR WHERE EVTID=' . $evtId . ' ORDER BY eventinfo.GROUPNAME ASC ';
+		$evtOldId = $evtIdNewOldMap[$evtId];
+		
+		$query = 'SELECT eventinfo.NAME, eventinfo.IPADDR, eventinfo.GROUPNAME, userinfo.EMAIL FROM eventinfo LEFT JOIN userinfo ON eventinfo.IPADDR = userinfo.IPADDR WHERE EVTID=' . $evtOldId . ' ORDER BY eventinfo.GROUPNAME ASC ';
 
-        $result = mysqli_query($con,$query);
+		$result = mysqli_query($con,$query);
 
-        if(mysql_errno() != 0)
-        {
-          if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysql_error() . '<br />';
-          $mysqlerr = 3;
-        }
-        else
-        {
+		if(mysqli_errno($con) != 0)
+		{
+			if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysqli_error($con) . '<br />';
+			$mysqlerr = 3;
+		}
+		else
+		{
 		  echo '<h3> Registration </h3>';
 		  echo '<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->';
 		  echo '<table style="width:87%;text-align:center;margin-left:3%;">';
@@ -143,16 +154,16 @@
 				
 			  while($row = mysqli_fetch_array($result))
 			  {
-				if($_POST['ipaddr'] == $row['IPADDR'])
-				{
-					$userRegistered = 1;
-					$userName = $row['NAME'];
-					$userIP   = $row['IPADDR'];
-				}
-				echo '<tr style="width:100%;"><td style="width:10%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $i . '</td>';
-				echo '<td style="width:30%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $row['NAME'] . '</td>';
-				echo '<td style="width:60%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $row['EMAIL'] . '</td></tr>';
-				$i++;
+					if($_POST['ipaddr'] == $row['IPADDR'])
+					{
+						$userRegistered = 1;
+						$userName = $row['NAME'];
+						$userIP   = $row['IPADDR'];
+					}
+					echo '<tr style="width:100%;"><td style="width:10%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $i . '</td>';
+					echo '<td style="width:30%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $row['NAME'] . '</td>';
+					echo '<td style="width:60%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $row['EMAIL'] . '</td></tr>';
+					$i++;
 			  }
 		  }
 		  else
@@ -168,61 +179,60 @@
 			  
 			  while($row = mysqli_fetch_array($result))
 			  {
-				if($_POST['ipaddr'] == $row['IPADDR'])
-				{
-					$userRegistered = 1;
-					$userName = $row['NAME'];
-					$userIP   = $row['IPADDR'];
-				}
-				if($prevGroupName != $row['GROUPNAME'])
-				{
-					for($j=$teamSize;$j<$evtMemberCount[$evtId];$j++)
+					if($_POST['ipaddr'] == $row['IPADDR'])
+					{
+						$userRegistered = 1;
+						$userName = $row['NAME'];
+						$userIP   = $row['IPADDR'];
+					}
+					if($prevGroupName != $row['GROUPNAME'])
+					{
+						for($j=$teamSize;$j<$evtMemberCount[$evtId];$j++)
+						{
+							echo '<tr style="width:100%;">';
+							echo '<td style="width:21%;border:1px solid black;font-family:philosopher;vertical-align:middle;"> &nbsp; </td>';
+							echo '<td style="width:51%;border:1px solid black;font-family:philosopher;vertical-align:middle;"> &nbsp; </td></tr>';
+						}
+						$teamSize = 1;
+						
+						echo '<tr style="width:100%;"><td style="width:6%;border:1px solid black;font-family:philosopher;vertical-align:middle;" rowspan="' . $evtMemberCount[$evtId] . '">' . $i . '</td>';
+						echo '<td style="width:21%;border:1px solid black;font-family:philosopher;vertical-align:middle;" rowspan="' . $evtMemberCount[$evtId] . '">' . $row['GROUPNAME'] . '</td>';
+						echo '<td style="width:21%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $row['NAME'] . '</td>';
+						echo '<td style="width:51%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $row['EMAIL'] . '</td></tr>';
+						$i++;
+					}
+					else
 					{
 						echo '<tr style="width:100%;">';
-						echo '<td style="width:21%;border:1px solid black;font-family:philosopher;vertical-align:middle;"> &nbsp; </td>';
-						echo '<td style="width:51%;border:1px solid black;font-family:philosopher;vertical-align:middle;"> &nbsp; </td></tr>';
+						echo '<td style="width:21%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $row['NAME'] . '</td>';
+						echo '<td style="width:51%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $row['EMAIL'] . '</td></tr>';
+						$teamSize++;
 					}
-					$teamSize = 1;
-					
-					echo '<tr style="width:100%;"><td style="width:6%;border:1px solid black;font-family:philosopher;vertical-align:middle;" rowspan="' . $evtMemberCount[$evtId] . '">' . $i . '</td>';
-					echo '<td style="width:21%;border:1px solid black;font-family:philosopher;vertical-align:middle;" rowspan="' . $evtMemberCount[$evtId] . '">' . $row['GROUPNAME'] . '</td>';
-					echo '<td style="width:21%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $row['NAME'] . '</td>';
-					echo '<td style="width:51%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $row['EMAIL'] . '</td></tr>';
-					$i++;
+				
+					$prevGroupName = $row['GROUPNAME'];
 				}
-				else
+				for($j=$teamSize;$j<$evtMemberCount[$evtId];$j++)
 				{
 					echo '<tr style="width:100%;">';
-					echo '<td style="width:21%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $row['NAME'] . '</td>';
-					echo '<td style="width:51%;border:1px solid black;font-family:philosopher;vertical-align:middle;">' . $row['EMAIL'] . '</td></tr>';
-					$teamSize++;
+					echo '<td style="width:21%;border:1px solid black;font-family:philosopher;vertical-align:middle;"> &nbsp; </td>';
+					echo '<td style="width:51%;border:1px solid black;font-family:philosopher;vertical-align:middle;"> &nbsp; </td></tr>';
 				}
-				
-				$prevGroupName = $row['GROUPNAME'];
-				
-			  }
-			  for($j=$teamSize;$j<$evtMemberCount[$evtId];$j++)
-			  {
-				  echo '<tr style="width:100%;">';
-				  echo '<td style="width:21%;border:1px solid black;font-family:philosopher;vertical-align:middle;"> &nbsp; </td>';
-				  echo '<td style="width:51%;border:1px solid black;font-family:philosopher;vertical-align:middle;"> &nbsp; </td></tr>';
-			  }
-		  }
+			}
 		  
 		  echo '</table>';
 		  
 		  /* Group Event */
 		  if($evtMemberCount[$evtId] != 1)
 		  {
-			echo '<br />';
-			/* echo '<span  style="margin-left:3%;">Group ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   :&nbsp;&nbsp;&nbsp;</span><input id="evt' . $evtId . 'GroupId" name="groupid"  class="ipAdText" type="text" val="" /><br />'. "\r\n"; */
-			echo '<span  style="margin-left:3%;">Group Name :&nbsp;&nbsp;&nbsp;</span><input id="evt'  .$evtId . 'GroupName" name="groupname" class="ipAdText" type="text" val="" />&nbsp;&nbsp;&nbsp;'. "\r\n";
+				echo '<br />';
+				/* echo '<span  style="margin-left:3%;">Group ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   :&nbsp;&nbsp;&nbsp;</span><input id="evt' . $evtId . 'GroupId" name="groupid"  class="ipAdText" type="text" val="" /><br />'. "\r\n"; */
+				echo '<span  style="margin-left:3%;">Group Name :&nbsp;&nbsp;&nbsp;</span><input id="evt'  .$evtId . 'GroupName" name="groupname" class="ipAdText" type="text" val="" />&nbsp;&nbsp;&nbsp;'. "\r\n";
 		  }		  
 		  
 		  if($userRegistered == 0) {
-			echo '<button id="evt' . $evtId . 'btn" class="evtRegBtn" type="submit" value="Reg" onclick="postRegInfo(0, ' . $evtId . ', 1, ' . "'" . $userName . "'" . ', ' . "'" . $userIP . "'" . ', 0,' . "''," . "'#evt" . $evtId . "Table'" . ')"> Register for this Event </button>'; }
+				echo '<button id="evt' . $evtId . 'btn" class="evtRegBtn" type="submit" value="Reg" onclick="postRegInfo(0, ' . $evtId . ', 1, ' . "'" . $userName . "'" . ', ' . "'" . $userIP . "'" . ', 0,' . "''," . "'#evt" . $evtId . "Table'" . ')"> Register for this Event </button>'; }
 		  else {
-			echo '<button id="evt' . $evtId . 'btn" class="evtRegBtn" style="color:#ff0000;" type="submit" value="Unreg" onclick="postRegInfo(0, ' . $evtId . ', 0, ' . "'" . $userName . "'" . ', ' . "'" . $userIP . "'" . ', 0,' . "''," . "'#evt" . $evtId . "Table'" . ')"> Unregister from this Event </button>';
+				echo '<button id="evt' . $evtId . 'btn" class="evtRegBtn" style="color:#ff0000;" type="submit" value="Unreg" onclick="postRegInfo(0, ' . $evtId . ', 0, ' . "'" . $userName . "'" . ', ' . "'" . $userIP . "'" . ', 0,' . "''," . "'#evt" . $evtId . "Table'" . ')"> Unregister from this Event </button>';
 		  }
 		}
 	}
@@ -232,18 +242,21 @@
 		global $useEcho;
 		global $evtMemberCount;
 		global $con;
+		global $evtIdNewOldMap;
 		
-		$query = 'SELECT eventinfo.NAME, eventinfo.IPADDR, eventinfo.GROUPNAME, userinfo.EMAIL FROM eventinfo LEFT JOIN userinfo ON eventinfo.IPADDR = userinfo.IPADDR WHERE EVTID=' . $evtId . ' ORDER BY eventinfo.GROUPNAME ASC ';
+		$evtOldId = $evtIdNewOldMap[$evtId];
+		
+		$query = 'SELECT eventinfo.NAME, eventinfo.IPADDR, eventinfo.GROUPNAME, userinfo.EMAIL FROM eventinfo LEFT JOIN userinfo ON eventinfo.IPADDR = userinfo.IPADDR WHERE EVTID=' . $evtOldId . ' ORDER BY eventinfo.GROUPNAME ASC ';
 
-        $result = mysqli_query($con,$query);
+		$result = mysqli_query($con,$query);
 
-        if(mysql_errno() != 0)
-        {
-          if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysql_error() . '<br />' . "\r\n";
-          $mysqlerr = 3;
-        }
-        else
-        {
+		if(mysqli_errno($con) != 0)
+		{
+			if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysqli_error($con) . '<br />' . "\r\n";
+			$mysqlerr = 3;
+		}
+		else
+		{
 		  echo '<br /><div id="evt' . $evtId . 'table">' . "\r\n";
 		  echo '<table style="width:87%;text-align:center;margin-left:6%;">' . "\r\n";
 		  
@@ -322,7 +335,7 @@
 		  echo '</table><br />' . "\r\n";
 		  
 		  echo '<form id="evt' . $evtId . 'Form" action="reg.php" method="post" style="margin-left:6%;">' . "\r\n";
-          echo 'Name: <input id="evt' . $evtId . 'NameIp" name="name"  class="ipAdText" type="text" val="" />&nbsp;&nbsp;&nbsp;'. "\r\n";
+      echo 'Name: <input id="evt' . $evtId . 'NameIp" name="name"  class="ipAdText" type="text" val="" />&nbsp;&nbsp;&nbsp;'. "\r\n";
 		  echo 'Email: <input id="evt'  .$evtId . 'MailIp" name="email" class="ipAdText" type="text" val="" />&nbsp;&nbsp;&nbsp;'. "\r\n";
 		  if($evtMemberCount[$evtId] != 1) { $gpNameType = 'type="text"'; } else { $gpNameType = 'type="hidden"'; }
 		  echo 'Group Name: <input id="evt'  .$evtId . 'GroupName" name="groupname" class="ipAdText"' . $gpNameType . 'val="" />&nbsp;&nbsp;&nbsp;'. "\r\n";

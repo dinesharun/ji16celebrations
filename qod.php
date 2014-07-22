@@ -22,18 +22,18 @@
 	
 	$con = mysqli_connect("localhost","guest","pass");
 
-	if(mysql_errno() != 0)
+	if(mysqli_errno($con) != 0)
 	{
-	  if($useEcho == 1) echo "No Connection con = " . $con . '__error = ' . mysql_error() . '<br />';
+	  if($useEcho == 1) echo "No Connection con = " . $con . '__error = ' . mysqli_error($con) . '<br />';
 	  $mysqlerr = 1;
 	}
 	else
 	{
 	  mysqli_select_db($con,"jas16anniv");
 
-	  if(mysql_errno() != 0)
+	  if(mysqli_errno($con) != 0)
 	  {
-		if($useEcho == 1) echo "Could not select Table con = " . $con . '__error = ' . mysql_error() . '<br />';
+		if($useEcho == 1) echo "Could not select Table con = " . $con . '__error = ' . mysqli_error($con) . '<br />';
 		$mysqlerr = 2;
 	  }
 	  else
@@ -49,9 +49,9 @@
 
 			$result = mysqli_query($con,$Query);
 
-			if(mysql_errno() != 0)
+			if(mysqli_errno($con) != 0)
 			{
-				if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysql_error() . '<br />';
+				if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysqli_error($con) . '<br />';
 				$mysqlerr = 3;
 			}
 			
@@ -93,9 +93,9 @@
 					
 					$result = mysqli_query($con,$Query);
 					
-					if(mysql_errno() != 0)
+					if(mysqli_errno($con) != 0)
 					{
-					  if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysql_error() . '<br />';
+					  if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysqli_error($con) . '<br />';
 					  $mysqlerr = 5;
 					}	
 					else

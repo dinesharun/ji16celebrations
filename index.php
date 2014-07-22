@@ -89,6 +89,10 @@
 	$extraDates[34] = "";	
 	$extraDates[35] = "";	
 	
+  /* Compromise to use old event ids for new events */
+	                     /* 00, 01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35) */
+	$evtIdNewOldMap = array(32, 20, 17, 11,  5, 14,  1, 21, 10, 30, 34,  2, 35,  0,  8,  6, 33, 15, 31,  3,  4,  7,  9, 12, 13, 16, 18, 19, 22, 23, 24, 25, 26, 27, 28, 29);	
+	
 	if($noReg == 0)
 	{
 		if(isset($_SERVER["REMOTE_ADDR"])) { 
@@ -208,10 +212,13 @@
 		global $stopRegForEvt;
 		global $con;
 		global $noReg;
+		global $evtIdNewOldMap;
+		
+		$evtOldId = $evtIdNewOldMap[$evtId];
 		
     if($noReg == 0)
     {
-      $query = 'SELECT eventinfo.NAME, eventinfo.IPADDR, eventinfo.GROUPNAME, userinfo.EMAIL FROM eventinfo LEFT JOIN userinfo ON eventinfo.IPADDR = userinfo.IPADDR WHERE EVTID=' . $evtId . ' ORDER BY eventinfo.GROUPNAME ASC ';
+      $query = 'SELECT eventinfo.NAME, eventinfo.IPADDR, eventinfo.GROUPNAME, userinfo.EMAIL FROM eventinfo LEFT JOIN userinfo ON eventinfo.IPADDR = userinfo.IPADDR WHERE EVTID=' . $evtOldId . ' ORDER BY eventinfo.GROUPNAME ASC ';
 
       $result = mysqli_query($con, $query);
 
@@ -239,16 +246,16 @@
           
           while($row = mysqli_fetch_array($result))
           {
-          if($ipParsed == $row['IPADDR'])
-          {
-            $userRegistered = 1;
-            $userName = $row['NAME'];
-            $userIP   = $row['IPADDR'];
-          }
-          echo '<tr style="width:100%;"><td style="width:10%;border:1px solid black;font-family:salsa;vertical-align:middle;">' . $i . '</td>';
-          echo '<td style="width:30%;border:1px solid black;font-family:salsa;vertical-align:middle;">' . $row['NAME'] . '</td>';
-          echo '<td style="width:60%;border:1px solid black;font-family:salsa;vertical-align:middle;">' . $row['EMAIL'] . '</td></tr>';
-          $i++;
+						if($ipParsed == $row['IPADDR'])
+						{
+							$userRegistered = 1;
+							$userName = $row['NAME'];
+							$userIP   = $row['IPADDR'];
+						}
+						echo '<tr style="width:100%;"><td style="width:10%;border:1px solid black;font-family:salsa;vertical-align:middle;">' . $i . '</td>';
+						echo '<td style="width:30%;border:1px solid black;font-family:salsa;vertical-align:middle;">' . $row['NAME'] . '</td>';
+						echo '<td style="width:60%;border:1px solid black;font-family:salsa;vertical-align:middle;">' . $row['EMAIL'] . '</td></tr>';
+						$i++;
           }
         }
         else
@@ -311,9 +318,9 @@
           /* Group Event */
           if($evtMemberCount[$evtId] != 1)
           {
-          echo '<br />';
-          /* echo '<span  style="margin-left:3%;">Group ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   :&nbsp;&nbsp;&nbsp;</span><input id="evt' . $evtId . 'GroupId" name="groupid"  class="ipAdText" type="text" val="" /><br />'. "\r\n"; */
-          echo '<span  style="margin-left:3%;">Group Name :&nbsp;&nbsp;&nbsp;</span><input id="evt'  .$evtId . 'GroupName" name="groupname" class="ipAdText" type="text" val="" />&nbsp;&nbsp;&nbsp;'. "\r\n";
+						echo '<br />';
+						/* echo '<span  style="margin-left:3%;">Group ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   :&nbsp;&nbsp;&nbsp;</span><input id="evt' . $evtId . 'GroupId" name="groupid"  class="ipAdText" type="text" val="" /><br />'. "\r\n"; */
+						echo '<span style="margin-left:3%;">Group Name :&nbsp;&nbsp;&nbsp;</span><input id="evt'  .$evtId . 'GroupName" name="groupname" class="ipAdText" type="text" val="" />&nbsp;&nbsp;&nbsp;'. "\r\n";
           }
           
           if($userRegistered == 0) {
