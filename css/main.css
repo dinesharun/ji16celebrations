@@ -2,7 +2,7 @@ html{margin:0px auto;}
 h1{font-family:Salsa;font-size:178%;text-align:center;color:#aa6666;font-weight:bold;text-shadow:1px 1px 1px #000000;}
 h2{font-family:Handlee;font-size:148%;text-align:center;color:#6666cc;font-weight:bold;text-shadow:0px 0px 1px #000000;}
 h3{font-family:Handlee;font-size:129%;text-align:left;color:#666699;font-weight:bold;text-shadow:0px 0px 1px #333333;}
-body {font-size:14px; font-family:Salsa; border: 0px; padding: 0px; margin: 0.9%; margin-right:21%; margin-left:3%;
+body {font-size:14px; font-family:Salsa; border: 0px; padding: 0px; margin: 0.9%; margin-right:24%; margin-left:1.8%;
      margin-top:3%;background:rgba(242, 242, 242, 1);}
 .adminConBody{font-size:14px; font-family:Salsa; border: 0px; padding: 0px; margin: 0.9%; 
 			  margin-top:3%;background:rgba(242, 242, 242, 1); margin: 0.9%; margin-right:21%; margin-left:3%;}	 
@@ -13,7 +13,7 @@ table{font-size:100%; color: #333366; font-family: Salsa;padding:0px;border-spac
 tr{font-size:100%; color: #333366; font-family: Salsa;padding:0px;border-spacing:0px;}
 td{font-size:100%; color: #333366; font-family: Salsa;padding:0px;border-spacing:0px;vertical-align:top;}
 image{border:0px;}
-.ji15LogoDiv{position:fixed;top:0%;left:1%;width:6%;height:15.6%;padding-top:0.3%;background: rgba(255, 255, 255, 1) url('../images/dbg.png');z-index:99999;
+.ji15LogoDiv{position:fixed;top:0%;left:1%;width:6%;height:16%;padding-top:0.3%;background: rgba(255, 255, 255, 1) url('../images/dbg.png');z-index:99999;
 			 border:2px solid black;}
 .ji15LogoDiv:hover{background: rgba(255, 222, 222, 1) url('../images/dbg.png');}			
 .ji15LogoImg{width:100%;height:auto;margin-bottom:0.6%;}
@@ -66,7 +66,7 @@ image{border:0px;}
 .evtImgBig{width:9%;vertical-align:middle;}
 .evtDesc{margin-right:60.3%;width:39%;padding:0.3%;}
 .evtReg{float:right;width:60%;}
-.todayDiv{float:right;width:33%;}
+.todayDiv{float:right;width:36%;}
 .lineSepLong{width:81%;margin-left:9%;margin-right:9%;display:block;border:none;color:white;height:2px;background:black;
 			 background: radial-gradient(50% 50%, circle cover, #000000, #f2f2f2);
 			 background: -webkit-radial-gradient(50% 50%, circle cover, #000000, #f2f2f2);

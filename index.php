@@ -110,9 +110,9 @@
 		
 		$con = mysqlI_connect("localhost","guest","pass");
 		
-		if(mysql_errno() != 0)
+		if(mysqli_errno($con) != 0)
 		{
-		  if($useEcho == 1) echo "No Connection con = " . $con . '__error = ' . mysql_error() . '<br />';
+		  if($useEcho == 1) echo "No Connection con = " . $con . '__error = ' . mysqli_error($con) . '<br />';
 		  $mysqlerr = 1;
 		}
 		else
@@ -120,37 +120,37 @@
 		  #mysql_select_db("jas16anniv", $con);
 		  mysqli_select_db( $con,"jas16anniv");
 
-		  if(mysql_errno() != 0)
+		  if(mysqli_errno($con) != 0)
 		  {
-			if($useEcho == 1) echo "Could not select Table con = " . $con . '__error = ' . mysql_error() . '<br />';
-			$mysqlerr = 2;
+			  if($useEcho == 1) echo "Could not select Table con = " . $con . '__error = ' . mysqli_error($con) . '<br />';
+			  $mysqlerr = 2;
 		  }
 		  else
 		  {
-			$query = 'SELECT UNAME, NAME, EMAIL, LEVEL FROM userinfo WHERE IPADDR="' . $ipParsed . '"';
+				$query = 'SELECT UNAME, NAME, EMAIL, LEVEL FROM userinfo WHERE IPADDR="' . $ipParsed . '"';
 
-			#$result = mysql_query($query);
-			$result = mysqli_query($con,$query);
+				#$result = mysql_query($query);
+				$result = mysqli_query($con,$query);
 
-			if(mysql_errno() != 0)
-			{
-			  if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysql_error() . '<br />';
-			  $mysqlerr = 3;
-			}
-			else
-			{
-			  if($row = mysqlI_fetch_array($result))
-			  {
-				$uName = $row['UNAME'];
-				$fullName = $row['NAME'];
-				$emailID  = $row['EMAIL'];
-				$preLevel = $row['LEVEL'];
-			  }
-			  else
-			  {
-				$mysqlerr = 4;
-			  }
-			}
+				if(mysqli_errno($con) != 0)
+				{
+					if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysqli_error($con) . '<br />';
+					$mysqlerr = 3;
+				}
+				else
+				{
+					if($row = mysqli_fetch_array($result))
+					{
+						$uName = $row['UNAME'];
+						$fullName = $row['NAME'];
+						$emailID  = $row['EMAIL'];
+						$preLevel = $row['LEVEL'];
+					}
+					else
+					{
+					  $mysqlerr = 4;
+					}
+				}
 		  }
 		}
 		
@@ -215,9 +215,9 @@
 
       $result = mysqli_query($con, $query);
 
-      if(mysql_errno() != 0)
+      if(mysqli_errno($con) != 0)
       {
-        if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysql_error() . '<br />';
+        if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysqli_error($con) . '<br />';
         $mysqlerr = 3;
       }
       else
@@ -324,15 +324,18 @@
         }
         else
         {
-        echo '<br />';
-        echo '<div style="text-align:left;margin-left:3%;width:93%;color:#3333cc;font-weight:bold;"> Event Closed </div>';
+          echo '<br />';
+          echo '<div style="text-align:left;margin-left:3%;width:93%;color:#3333cc;font-weight:bold;"> Event Closed </div>';
         }
       }
     }
     else
     {
       $file = "data/evt_" . $evtId . ".htm";
-      echo file_get_contents($file);
+			if(file_exists($file) == true)
+			{
+        echo file_get_contents($file);
+		  }
     }
 	}
 	
@@ -343,16 +346,15 @@ function IsAnswerPresent()
 		global $qodId;
 		global $con;
 		$present = false;
-		
-		
+
 		$query = 'SELECT NAME FROM QOD WHERE QID=' . $qodId . ' AND IPADDR="' . $ipParsed . '";';
 
     #$result = mysql_query($query);
 		$result = mysqli_query($con,$query);
 
-    if(mysql_errno() != 0)
+    if(mysqli_errno($con) != 0)
     {
-        if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysql_error() . '<br />';
+        if($useEcho == 1) echo "result for query = " . $result . '__error = ' . mysqli_error($con) . '<br />';
         $mysqlerr = 3;
     }
     else
@@ -518,7 +520,7 @@ function IsAnswerPresent()
 			
 		</ul>
 	</div>
-	<div style="float:right;width:1px;margin:3%;">
+	<div style="float:right;width:1px;margin:1.2%;">
 		<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 	</div>
 	
@@ -533,16 +535,16 @@ function IsAnswerPresent()
 			//echo '<div id="qodDiv">';
 			//echo $qodQues . '&nbsp;:&nbsp;';
 			
-			if(IsAnswerPresent() == false)
-			{
-				echo '<input id="qOfDay" name="qodAns" type="text" value="" > </input>';
-				echo '<button id="qOfDatBtn" type="submit" value="Reg" onclick="submitQODAnswer(' . $qodId . ", '" . $fullName . "', '" . $ipParsed . "'" . ')"> Submit </button><br /><br />';
-			}
-			else
-			{
-				echo '<span style="color:#666699;"> You have already anwered  the question </span>';
-			}
-			echo '</div>';
+			//if(IsAnswerPresent() == false)
+			//{
+				//echo '<input id="qOfDay" name="qodAns" type="text" value="" > </input>';
+				//echo '<button id="qOfDatBtn" type="submit" value="Reg" onclick="submitQODAnswer(' . $qodId . ", '" . $fullName . "', '" . $ipParsed . "'" . ')"> Submit </button><br /><br />';
+			//}
+			//else
+			//{
+				//echo '<span style="color:#666699;"> You have already anwered  the question </span>';
+			//}
+			//echo '</div>';
 		}
 	?>
 	
@@ -567,30 +569,30 @@ function IsAnswerPresent()
 	
 	<div class="eventsList">
 		<table style="width:99%;">
-			<tr style="width:100%";>
-				<td style="width:9%;"> <div class="eventDiv"><a href="#evt32" class="evtListLink"> <img src="images/32.png" class="evtImgTiny" /><br /> Chess  </a> </div>
-				<td style="width:9%;"> <div class="eventDiv"><a href="#evt32" class="evtListLink"> <img src="images/musicChair.png" class="evtImgTiny" /><br /> Musical Chair  </a> </div>
-				<td style="width:9%;"> <div class="eventDiv"><a href="#evt32" class="evtListLink"> <img src="images/mehandi.png" class="evtImgTiny" /><br /> Mehandi</a> </div>
-				<td style="width:9%;"> <div class="eventDiv"><a href="#evt32" class="evtListLink"> <img src="images/connexion.png" class="evtImgTiny" /><br /> Connextions </a> </div>
-				<td style="width:9%;"> <div class="eventDiv"><a href="#evt32" class="evtListLink"> <img src="images/waterBallon.png" class="evtImgTiny" /><br /> Water Baloon  </a> </div>
-				<td style="width:9%;"> <div class="eventDiv"><a href="#evt32" class="evtListLink"> <img src="images/football.png" class="evtImgTiny" /><br /> Foot Ball  </a> </div>
-				<td style="width:9%;"> <div class="eventDiv"><a href="#evt32" class="evtListLink"> <img src="images/frenchCric.png" class="evtImgTiny" /><br /> French Cricket  </a> </div>
-				<td style="width:9%;"> <div class="eventDiv"><a href="#evt32" class="evtListLink"> <img src="images/rangoli.png" class="evtImgTiny" /><br /> Rangoli </a> </div>
-				<td style="width:9%;"> <div class="eventDiv"><a href="#evt11" class="evtListLink"> <img src="images/11.png" class="evtImgTiny" /><br /> Word Hint  </a> </div>
-				<td style="width:9%;"> <div class="eventDiv"><a href="#evt01" class="evtListLink"> <img src="images/1.png" class="evtImgTiny" /><br />  Aim the Game  </a> </div>
+			<tr style="width:100%;">
+				<td style="width:9%;"> <div class="eventDiv"><a href="#evt00" class="evtListLink"> <img src="images/32.png" class="evtImgTiny" /><br /> Chess  </a> </div>
+				<td style="width:9%;"> <div class="eventDiv"><a href="#evt01" class="evtListLink"> <img src="images/mehandi.png" class="evtImgTiny" /><br /> Mehandi</a> </div>
+				<td style="width:9%;"> <div class="eventDiv"><a href="#evt02" class="evtListLink"> <img src="images/musicChair.png" class="evtImgTiny" /><br /> Musical Chair  </a> </div>
+				<td style="width:9%;"> <div class="eventDiv"><a href="#evt03" class="evtListLink"> <img src="images/11.png" class="evtImgTiny" /><br /> Word Hint  </a> </div>
+				<td style="width:9%;"> <div class="eventDiv"><a href="#evt04" class="evtListLink"> <img src="images/connexion.png" class="evtImgTiny" /><br /> Connextions </a> </div>
+				<td style="width:9%;"> <div class="eventDiv"><a href="#evt05" class="evtListLink"> <img src="images/waterBallon.png" class="evtImgTiny" /><br /> Water Baloon  </a> </div>
+				<td style="width:9%;"> <div class="eventDiv"><a href="#evt06" class="evtListLink"> <img src="images/1.png" class="evtImgTiny" /><br />  Aim the Game  </a> </div>
 		</tr>
   	<tr style="width:100%";>
-				<td style="width:9%;"> <div class="eventDiv"><a href="#evt21" class="evtListLink"> <img src="images/21.png" class="evtImgTiny" /><br /> Just A Minute  </a> </div>
-				<td style="width:9%;"> <div class="eventDiv"><a href="#evt02" class="evtListLink"> <img src="images/foe1.png" class="evtImgTiny" /><br />  Pull the Foe  </a> </div>
-				<td style="width:9%;"> <div class="eventDiv"><a href="#evt35" class="evtListLink"> <img src="images/35.png" class="evtImgTiny" /><br /> Throwball (Ladies) </a> </div>
-				<td style="width:9%;"> <div class="eventDiv"><a href="#evt00" class="evtListLink"> <img src="images/0.png" class="evtImgTiny" /><br />  Big Shot  </a> </div>
+				<td style="width:9%;"> <div class="eventDiv"><a href="#evt07" class="evtListLink"> <img src="images/21.png" class="evtImgTiny" /><br /> Just A Minute  </a> </div>
+				<td style="width:9%;"> <div class="eventDiv"><a href="#evt08" class="evtListLink"> <img src="images/football.png" class="evtImgTiny" /><br /> Foot Ball  </a> </div>
+				<td style="width:9%;"> <div class="eventDiv"><a href="#evt09" class="evtListLink"> <img src="images/frenchCric.png" class="evtImgTiny" /><br /> French Cricket  </a> </div>
+				<td style="width:9%;"> <div class="eventDiv"><a href="#evt10" class="evtListLink"> <img src="images/rangoli.png" class="evtImgTiny" /><br /> Rangoli </a> </div>
+				<td style="width:9%;"> <div class="eventDiv"><a href="#evt11" class="evtListLink"> <img src="images/foe1.png" class="evtImgTiny" /><br />  Pull the Foe  </a> </div>
+				<td style="width:9%;"> <div class="eventDiv"><a href="#evt12" class="evtListLink"> <img src="images/35.png" class="evtImgTiny" /><br /> Throwball (Ladies) </a> </div>
+				<td style="width:9%;"> <div class="eventDiv"><a href="#evt13" class="evtListLink"> <img src="images/0.png" class="evtImgTiny" /><br />  Big Shot  </a> </div>
 		</tr>
 		<tr style="width:100%";>
-				<td style="width:9%;"> <div class="eventDiv"><a href="#evt08" class="evtListLink"> <img src="images/8.png" class="evtImgTiny" /><br />  Jasmin's Lucky Charm  </a> </div>
-				<td style="width:9%;"> <div class="eventDiv"><a href="#evt06" class="evtListLink"> <img src="images/6.png" class="evtImgTiny" /><br />  Dumb Charades  </a> </div>
-				<td style="width:9%;"> <div class="eventDiv"><a href="#evt33" class="evtListLink"> <img src="images/33.png" class="evtImgTiny" /><br /> Shuttle  </a> </div>
-				<td style="width:9%;"> <div class="eventDiv"><a href="#evt15" class="evtListLink"> <img src="images/15.png" class="evtImgTiny" /><br /> Slow Rider  </a> </div>
-				<td style="width:9%;"> <div class="eventDiv"><a href="#evt31" class="evtListLink"> <img src="images/31.png" class="evtImgTiny" /><br /> Carrom  </a> </div>
+				<td style="width:9%;"> <div class="eventDiv"><a href="#evt14" class="evtListLink"> <img src="images/8.png" class="evtImgTiny" /><br />  Jasmin's Lucky Charm  </a> </div>
+				<td style="width:9%;"> <div class="eventDiv"><a href="#evt15" class="evtListLink"> <img src="images/6.png" class="evtImgTiny" /><br />  Dumb Charades  </a> </div>
+				<td style="width:9%;"> <div class="eventDiv"><a href="#evt16" class="evtListLink"> <img src="images/33.png" class="evtImgTiny" /><br /> Shuttle  </a> </div>
+				<td style="width:9%;"> <div class="eventDiv"><a href="#evt17" class="evtListLink"> <img src="images/15.png" class="evtImgTiny" /><br /> Slow Rider  </a> </div>
+				<td style="width:9%;"> <div class="eventDiv"><a href="#evt18" class="evtListLink"> <img src="images/31.png" class="evtImgTiny" /><br /> Carrom  </a> </div>
 		</tr>
 		</table>
 	</div>
@@ -628,7 +630,7 @@ function IsAnswerPresent()
 				
 		<?php
 		
-			$date = 22;
+			$date = 20;  /* start of week sunday */
 			$mnth = 7;
 			$year = 2014;
 			$d    = "";
@@ -787,7 +789,7 @@ function IsAnswerPresent()
 				</table>
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
 			</td>
-			<td style="width:1%;vertical-align:middle;">
+			<td style="width:1%;vertical-align:middle;text-align:center;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
@@ -831,7 +833,7 @@ function IsAnswerPresent()
 				</table>
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
 			</td>
-			<td style="width:1%;vertical-align:middle;">
+			<td style="width:1%;vertical-align:middle;text-align:center;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
@@ -875,7 +877,7 @@ function IsAnswerPresent()
 				</table>
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
 			</td>
-			<td style="width:1%;vertical-align:middle;">
+			<td style="width:1%;vertical-align:middle;text-align:center;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
@@ -924,7 +926,7 @@ function IsAnswerPresent()
 				</table>
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
 			</td>
-			<td style="width:1%;vertical-align:middle;">
+			<td style="width:1%;vertical-align:middle;text-align:center;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
@@ -967,7 +969,7 @@ function IsAnswerPresent()
 				</table>
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
 			</td>
-			<td style="width:1%;vertical-align:middle;">
+			<td style="width:1%;vertical-align:middle;text-align:center;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
@@ -1011,7 +1013,7 @@ function IsAnswerPresent()
 				</table>
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
 			</td>
-			<td style="width:1%;vertical-align:middle;">
+			<td style="width:1%;vertical-align:middle;text-align:center;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
@@ -1056,7 +1058,7 @@ function IsAnswerPresent()
 				</table>
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
 			</td>
-			<td style="width:1%;vertical-align:middle;">
+			<td style="width:1%;vertical-align:middle;text-align:center;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
@@ -1100,7 +1102,7 @@ function IsAnswerPresent()
 				</table>
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
 			</td>
-			<td style="width:1%;vertical-align:middle;">
+			<td style="width:1%;vertical-align:middle;text-align:center;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
@@ -1142,7 +1144,7 @@ function IsAnswerPresent()
 				</table>
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
 			</td>
-			<td style="width:1%;vertical-align:middle;">
+			<td style="width:1%;vertical-align:middle;text-align:center;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
@@ -1186,7 +1188,7 @@ function IsAnswerPresent()
 				</table>
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
 			</td>
-			<td style="width:1%;vertical-align:middle;">
+			<td style="width:1%;vertical-align:middle;text-align:center;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
@@ -1229,7 +1231,7 @@ function IsAnswerPresent()
 				</table>
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
 			</td>
-			<td style="width:1%;vertical-align:middle;">
+			<td style="width:1%;vertical-align:middle;text-align:center;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
@@ -1273,7 +1275,7 @@ function IsAnswerPresent()
 				</table>
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
 			</td>
-			<td style="width:1%;vertical-align:middle;">
+			<td style="width:1%;vertical-align:middle;text-align:center;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
@@ -1320,7 +1322,7 @@ function IsAnswerPresent()
 				</table>
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
 			</td>
-			<td style="width:1%;vertical-align:middle;">
+			<td style="width:1%;vertical-align:middle;text-align:center;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
@@ -1364,7 +1366,7 @@ function IsAnswerPresent()
 				</table>
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
 			</td>
-			<td style="width:1%;vertical-align:middle;">
+			<td style="width:1%;vertical-align:middle;text-align:center;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
@@ -1409,7 +1411,7 @@ function IsAnswerPresent()
 				</table>
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
 			</td>
-			<td style="width:1%;vertical-align:middle;">
+			<td style="width:1%;vertical-align:middle;text-align:center;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
@@ -1454,7 +1456,7 @@ function IsAnswerPresent()
 				</table>
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
 			</td>
-			<td style="width:1%;vertical-align:middle;">
+			<td style="width:1%;vertical-align:middle;text-align:center;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
@@ -1497,7 +1499,7 @@ function IsAnswerPresent()
 				</table>
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
 			</td>
-			<td style="width:1%;vertical-align:middle;">
+			<td style="width:1%;vertical-align:middle;text-align:center;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
@@ -1541,7 +1543,7 @@ function IsAnswerPresent()
 				</table>
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
 			</td>
-			<td style="width:1%;vertical-align:middle;">
+			<td style="width:1%;vertical-align:middle;text-align:center;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
@@ -1584,7 +1586,7 @@ function IsAnswerPresent()
 				</table>
 				<!--[if !IE]> --><div class="lineSepSmall"></div><!-- <![endif]-->
 			</td>
-			<td style="width:1%;vertical-align:middle;">
+			<td style="width:1%;vertical-align:middle;text-align:center;">
 				<div class="lineSepVert"> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
 			</td>
 			<td	<?php { echo 'style="width:69%;"';} ?> >
