@@ -519,12 +519,11 @@ function IsAnswerPresent()
 		<h3 style="text-align:center;">Today's Events </h3><!--[if !IE]> --><div class="lineSepLong"></div><!-- <![endif]--><br />
 		
 		<!-- EDIT HERE with the current date -->
-		<div class="date" style="width:100%;text-align:left;"> Wednesday, 23-07-2014 </div>
+		<div class="date" style="width:100%;text-align:left;"> Friday, 25-07-2014 </div>
 		
 		<!-- EDIT HERE for Events of the day -->
 		<ul>
-			<li>Today's Deadline : Register for Shuttle & Aim the Game ! </li>
-			
+      <li> </li>	
 		</ul>
 	</div>
 	<div style="float:right;width:1px;margin:1.2%;">
