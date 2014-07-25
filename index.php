@@ -30,7 +30,8 @@
 	$noReg    = 1;
 	$evtD     = 0;
 	$evtT     = 0;
-	$totEvts = 36;
+	$totEvts  = 36;
+  $local    = 0;
 	
 	/* EDIT HERE for question of the day */
 	//$qodId    = 14;
@@ -213,7 +214,8 @@
 		global $con;
 		global $noReg;
 		global $evtIdNewOldMap;
-		
+		global $local;
+    
 		$evtOldId = $evtIdNewOldMap[$evtId];
 		
     if($noReg == 0)
@@ -338,7 +340,14 @@
     }
     else
     {
-      $file = "http://ji16celebrations.appspot.com/data/evt_" . $evtId . ".htm";
+      if($local == 1)
+      {
+        $file = "data/evt_" . $evtId . ".htm";
+      }
+      else
+      {
+        $file = "http://ji16celebrations.appspot.com/data/evt_" . $evtId . ".htm";
+      }
       echo file_get_contents($file);
     }
 	}
