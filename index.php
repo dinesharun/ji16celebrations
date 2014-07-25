@@ -338,7 +338,7 @@
     }
     else
     {
-      $file = "data/evt_" . $evtId . ".htm";
+      $file = "http://ji16celebrations.appspot.com/data/evt_" . $evtId . ".htm";
 			if(file_exists($file) == true)
 			{
         echo file_get_contents($file);
