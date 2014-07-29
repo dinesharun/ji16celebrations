@@ -32,7 +32,10 @@
 	$evtT     = 0;
 	$totEvts  = 36;
   $local    = 0;
-	
+  
+  $albumNames  = array('01 Water Balloon', '02 Aim the game', 'endofalbums');
+  $albImgCount = array(6, 5, 0);
+  	
 	/* EDIT HERE for question of the day */
 	//$qodId    = 14;
 	//$qodQues  = "Manish is the son of Harish.. So Harish is the ________of Manish's Father?";
@@ -388,61 +391,98 @@ function IsAnswerPresent()
 		$noAlb   = 1;
 		$i       = 0;
 		$fileCnt = array();
+    global $local;
 		
-		if(is_dir($albPath))
-		{
-			$currRootDir = opendir($albPath);
-	
-			while($folder = readdir($currRootDir))
-			{
-				if($useEcho ) { echo $folder . '  '; }
-				
-				$fullPath = $albPath . $folder . '/';
-				
-				if((is_dir($fullPath)) && ($folder != ".") && ($folder != ".."))
-				{				
-					if($currDir = opendir($fullPath))
-					{
-						echo '<div class="albName" onclick="switchAlbums(' . $i . ')">' . $folder . ' <img id="albName' . $i . '" style="float:right;width:3%;border:0px;" src="images/ua.png" /> </div>';
-						echo '<div id="alb' . $i . '" class="albDiv">';
-						
-						$j = 0;
-						
-						while(($file = readdir($currDir)) != false)
-						{
-							if(($file != ".") && ($file != "..") && ($file != "thumbs"))
-							{
-								$noAlb   = 0;
-								if($useEcho ) { echo $file . ' '; }
-								
-								if(strstr($file, ".db"))
-								{
-								}
-								else if(strstr($file, ".mp4"))
-								{
-									echo '<a href="' . $fullPath . $file . '"><span class="video"> Watch the Video </span></a>';
-								}
-								else
-								{
-									echo '<a href="' . $fullPath . $file . '"><img src="' . $fullPath . "thumbs/" . $file . '" /></a>';
-								}
-								
-								$j++;
-							}
-						}
-						
-						if($j == 0)
-						{
-							echo '<div style="color:#331111;text-align:center;font-weight:bold;text-shadow:0px 0px 1px #eeeeee;"> No Pictures in this Album Yet :( </div>';
-						}
-						$fileCnt[$i] = $j;
-						
-						echo '</div>';
-						$i++;
-					}
-				}
-			}
-		}
+    if($local == 1)
+    {
+      if(is_dir($albPath))
+      {
+        $currRootDir = opendir($albPath);
+    
+        while($folder = readdir($currRootDir))
+        {
+          if($useEcho ) { echo $folder . '  '; }
+          
+          $fullPath = $albPath . $folder . '/';
+          
+          if((is_dir($fullPath)) && ($folder != ".") && ($folder != ".."))
+          {				
+            if($currDir = opendir($fullPath))
+            {
+              echo '<div class="albName" onclick="switchAlbums(' . $i . ')">' . $folder . ' <img id="albName' . $i . '" style="float:right;width:3%;border:0px;" src="images/ua.png" /> </div>';
+              echo '<div id="alb' . $i . '" class="albDiv">';
+              
+              $j = 0;
+              
+              while(($file = readdir($currDir)) != false)
+              {
+                if(($file != ".") && ($file != "..") && ($file != "thumbs"))
+                {
+                  $noAlb   = 0;
+                  if($useEcho ) { echo $file . ' '; }
+                  
+                  if(strstr($file, ".db"))
+                  {
+                  }
+                  else if(strstr($file, ".mp4"))
+                  {
+                    echo '<a href="' . $fullPath . $file . '"><span class="video"> Watch the Video </span></a>';
+                  }
+                  else
+                  {
+                    echo '<a href="' . $fullPath . $file . '"><img src="' . $fullPath . "thumbs/" . $file . '" /></a>';
+                  }
+                  
+                  $j++;
+                }
+              }
+              
+              if($j == 0)
+              {
+                echo '<div style="color:#331111;text-align:center;font-weight:bold;text-shadow:0px 0px 1px #eeeeee;"> No Pictures in this Album Yet :( </div>';
+              }
+              $fileCnt[$i] = $j;
+              
+              echo '</div>';
+              $i++;
+            }
+          }
+        }
+      }
+    }
+    else
+    {   
+      global $albumNames;
+      global $albImgCount;
+      $albIdx = 0;
+      
+      while($albumNames[$albIdx] != 'endofalbums')
+      {         
+        $fullPath = $albPath . $albumNames[$albIdx] . '/';
+
+        echo '<div class="albName" onclick="switchAlbums(' . $i . ')">' . $albumNames[$albIdx] . ' <img id="albName' . $i . '" style="float:right;width:3%;border:0px;" src="images/ua.png" /> </div>';
+        echo '<div id="alb' . $i . '" class="albDiv">';
+        
+        $j = 0;
+        
+        while($j < $albImgCount[$albIdx])
+        {
+          $noAlb   = 0;
+          echo '<a href="' . $fullPath . ($j+1) . '.jpg"><img src="' . $fullPath . "thumbs/" . ($j+1) . '.jpg" /></a>';
+          $j++;
+        }
+        
+        if($j == 0)
+        {
+          echo '<div style="color:#331111;text-align:center;font-weight:bold;text-shadow:0px 0px 1px #eeeeee;"> No Pictures in this Album Yet :( </div>';
+        }
+        $fileCnt[$i] = $j;
+        
+        echo '</div>';
+        $albIdx++;
+        $i++;
+      }
+    }
 		
 		if($noAlb == 1)
 		{
@@ -525,11 +565,10 @@ function IsAnswerPresent()
 		<h3 style="text-align:center;">Today's Events </h3><!--[if !IE]> --><div class="lineSepLong"></div><!-- <![endif]--><br />
 		
 		<!-- EDIT HERE with the current date -->
-		<div class="date" style="width:100%;text-align:left;"> Friday, 25-07-2014 </div>
+		<div class="date" style="width:100%;text-align:left;"> Tuesday, 29-07-2014 </div>
 		
 		<!-- EDIT HERE for Events of the day -->
 		<ul>
-      <li> </li>	
 		</ul>
 	</div>
 	<div style="float:right;width:1px;margin:1.2%;">
