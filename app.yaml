@@ -23,6 +23,11 @@ handlers:
   upload: data/(.*)
   application_readable: true
 
+- url: /albums/(.*)
+  static_files: albums/\1
+  upload: albums/(.*)
+  application_readable: true
+
 - url: /images/(.*)
   static_files: images/\1
   upload: images/(.*)
