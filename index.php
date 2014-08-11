@@ -34,7 +34,7 @@
   $local    = 0;
   
   $albumNames  = array('WaterBalloon', 'AimTheGame', 'FrenchCricket', 'JustAMinute', 'endofalbums');
-  $albImgCount = array(6, 5, 0);
+  $albImgCount = array(6, 5, 10, 8, 0);
   	
 	/* EDIT HERE for question of the day */
 	//$qodId    = 14;
