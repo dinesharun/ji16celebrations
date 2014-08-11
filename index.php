@@ -33,7 +33,7 @@
 	$totEvts  = 36;
   $local    = 0;
   
-  $albumNames  = array('WaterBalloon', 'AimTheGame', 'endofalbums');
+  $albumNames  = array('WaterBalloon', 'AimTheGame', 'FrenchCricket', 'JustAMinute', 'endofalbums');
   $albImgCount = array(6, 5, 0);
   	
 	/* EDIT HERE for question of the day */
