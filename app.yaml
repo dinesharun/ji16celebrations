@@ -33,6 +33,9 @@ handlers:
   upload: images/(.*)
   application_readable: true
 
+- url: /polls/
+  script: polls/index.php
+
 - url: /polls/(.*)
   static_files: post/\1
   upload: post/(.*)
