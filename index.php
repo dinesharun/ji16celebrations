@@ -31,7 +31,7 @@
 	$evtD     = 0;
 	$evtT     = 0;
 	$totEvts  = 36;
-  $local    = 1;
+  $local    = 0;
   
   $albumNames  = array('WaterBalloon', 'AimTheGame', 'FrenchCricket', 'JustAMinute', 'endofalbums');
   $albImgCount = array(6, 5, 10, 8, 0);
