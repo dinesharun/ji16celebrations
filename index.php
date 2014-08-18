@@ -607,7 +607,7 @@ function IsAnswerPresent()
 	
 	<!-- EDIT HERE for News -->
 	<ol style="font-family:Handlee;">
-		<li> Registrations for all events now open<img src="images/new.gif" style="" /> </li>
+		<li> All events completed, results will be up soon <img src="images/new.gif" style="" /> </li>
 		<li> Web portal Usage Guide updated in the <a href="usage.html" target="_blank"> following path  </a> </li>
 		<li> Web portal <a href="http://celebrations/" target="_blank"> http://celebrations/ </a> for internal users and 
 		<a href="http://ji16celebrations.appspot.com/" target="_blank"> http://ji16celebrations.appspot.com/ </a> for external users.
