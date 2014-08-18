@@ -33,8 +33,8 @@
 	$totEvts  = 36;
   $local    = 0;
   
-  $albumNames  = array('WaterBalloon', 'AimTheGame', 'FrenchCricket', 'JustAMinute', 'endofalbums');
-  $albImgCount = array(6, 5, 10, 8, 0);
+  $albumNames  = array('FrenchCricket', 'AimTheGame', 'WaterBalloon', 'JustAMinute', 'Connextions', 'Cricket', 'MusicalChair', 'Shuttle', 'endofalbums');
+  $albImgCount = array(10, 5, 6, 8, 7, 1, 5, 10, 0);
   	
 	/* EDIT HERE for question of the day */
 	//$qodId    = 14;
@@ -565,7 +565,7 @@ function IsAnswerPresent()
 		<h3 style="text-align:center;">Today's Events </h3><!--[if !IE]> --><div class="lineSepLong"></div><!-- <![endif]--><br />
 		
 		<!-- EDIT HERE with the current date -->
-		<div class="date" style="width:100%;text-align:left;"> Tuesday, 29-07-2014 </div>
+		<div class="date" style="width:100%;text-align:left;"> Monday, 18-08-2014 </div>
 		
 		<!-- EDIT HERE for Events of the day -->
 		<ul>

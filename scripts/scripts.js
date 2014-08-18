@@ -321,6 +321,7 @@ function voteFor(evtId, imgName, authName, vid, bid)
 	posting.done(function( data ) 
 	{
 		$('.' + vid).css("display", "block");
+    $('.' + vid).html(data);
 	});
 }
 
